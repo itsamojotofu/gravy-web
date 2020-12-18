@@ -1,0 +1,20 @@
+<header class="header">
+
+  <%= link_to image_tag("humbergur_button.png", class: "menu-icon"), "/" %>
+  
+  <div class ="nav"> 
+        <%= link_to image_tag("gravy_logo.png", class: "header-logo"), "/" %>
+
+      <ul class="nav-user">
+        <% if user_signed_in? %>
+          <li><%= link_to "マイページ", "/users/#{current_user.id}", class: "post-btn" %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "post-btn" %></li>
+        <% else %>
+          <li><%= link_to 'ログイン', new_user_session_path, class: "post-btn" %></li>
+          <li><%= link_to '新規登録', new_user_registration_path, class: "post-btn" %></li>
+        <% end %> 
+      </ul>
+
+  </div>
+  
+</header>
