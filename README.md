@@ -89,8 +89,5 @@
 - has_many :dish_tag_relations
 - has_many :dishes, through: :dish_tag_relations
 
-
-
-
 # Check It on Local
 
