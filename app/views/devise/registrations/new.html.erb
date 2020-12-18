@@ -1,0 +1,70 @@
+<%= render "shared/second-header"%>
+
+<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+<div class="signup-background">
+  <div class="signup-wrap">
+    <div class="signup-title">
+      <h1>Welcome!</h1>
+    </div>
+
+    <%= render 'shared/error_messages', model: f.object %>
+    
+    <div class="wrap-inner">
+      <div class="box-email">
+        <label class="form-text">ニックネーム</label><br />
+        <%= f.text_field :nickname, class:"input-default", id:"nickname", placeholder:"例) gravy太郎", maxlength:"30" %>
+      </div>
+
+      <div class="box-email">
+        <%= f.label :email %><br />
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="box-password">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上の半角英数字)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="box-email">
+        <label class="form-text">郵便番号</label><br />
+        <%= f.text_field :zip_code, autocomplete: "off", placeholder:"例) 000-0000" %>
+      </div>
+
+      <div class="box-email">
+        <label class="form-text">都道府県</label><br />
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+      </div>
+
+      <div class="box-email">
+        <label class="form-text">市町村</label><br />
+        <%= f.text_field :district, autocomplete: "off" %>
+      </div>
+
+      <div class="box-email">
+        <label class="form-text">番地</label><br />
+        <%= f.text_field :street, autocomplete: "off" %>
+      </div>
+
+      <div class="box-email">
+        <label class="form-text">電話番号</label><br />
+        <%= f.text_field :phone_number, autocomplete: "off" %>
+      </div>
+
+      </div>
+      <div class="box-signup">
+        <div class="legal-text">
+        サインアップすることで、
+        <%= link_to "利用規約", "#" %>
+        および<br>
+        <%= link_to "プライバシー規約", "#" %>
+        に同意するものとみなされます。
+        </div>
+        <%= f.submit "Sign up" %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
