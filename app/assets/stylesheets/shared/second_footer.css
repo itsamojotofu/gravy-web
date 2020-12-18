@@ -1,0 +1,67 @@
+.footer {
+  z-index: 9999;
+  width: 100%;
+  padding: 3vh 0vh;
+  color: #FFF;
+  background-color: #222222;
+}
+
+.footer-main {
+  display: flex;
+  border-bottom: 1px rgb(226, 226, 226) solid;
+  text-align: right;
+}
+
+
+.footer-contents {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 5vh;
+  margin-left:  12vw;
+}
+
+.details {
+  margin: 0 4vw;
+}
+
+.footer-content-head {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.footer-link {
+  color: #FFF;
+  font-size: 14px;
+  line-height: 35px;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.gravy-logo {
+  width: 160px;
+  height: 90px;
+  margin: 0px 20vw 170px 5vw;
+}
+
+ul {
+  list-style: none;
+}
+
+.copyright {
+  display: flex;
+  justify-content: flex-end;
+  margin: 15px 0px -10px 0px;
+  padding-right: 2vw;
+}
+
+#privacy {
+  margin-right: 5vw;
+}
+
+.footer>p {
+  font-size: 14px;
+}
