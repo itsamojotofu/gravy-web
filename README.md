@@ -37,21 +37,28 @@
 |Column |Type |Options |
 |-------|-----|--------|
 | name           | string      | null: false                    |
-| about          | text        | null: false                    |
-| business_hour  | string      | null: false                    |
-| status_id      | integer     | null: false                    |
-| gender_id      | integer     | null: false                    |
-| age_id         | integer     | null: false                    |
-| genre_id       | integer     | null: false                    |
 | zip_code       | string      | null: false                    |
 | prefecture_id  | integer     | null: false                    |
 | district       | string      | null: false                    |
 | street         | string      | null: false                    |
 | phone_number   | string      | null: false                    |
 
+### Association
+- has_many :dishes
+- has_one :profile
+
+## profiles table
+
+| about          | text        | null: false                    |
+| business_hour  | string      | null: false                    |
+| status_id      | integer     | null: false                    |
+| gender_id      | integer     | null: false                    |
+| age_id         | integer     | null: false                    |
+| genre_id       | integer     | null: false                    |
 
 ### Association
 - has_many :dishes
+- belongs_to :chef
 
 ## dishes table
 
