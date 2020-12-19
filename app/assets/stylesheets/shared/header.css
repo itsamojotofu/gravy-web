@@ -32,7 +32,7 @@ header {
 .header-logo {
   width: 160px;
   height: 90px;
-  margin-left: 10px;
+  margin-left: 45vw; 
 }
 
 .nav-user {
@@ -61,3 +61,89 @@ header {
   background: #ffe54f;
 }
 
+#nav{
+  position: absolute;
+  height: 100vh;
+  width: 25%;
+  left: -25%;
+  opacity: 0.9;
+  top: 0;
+  background: #ffffff;
+  transition: .7s;
+}
+#nav ul{
+  padding-top: 80px;
+}
+#nav ul li{
+  list-style-type: none;
+  font-size: 20px;
+}
+#nav a{
+  display: block;
+  text-decoration: none;
+  color: #000000;
+  margin: 0 15px;
+  padding: 10px;
+  transition: .5s;
+}
+#nav li a:hover{
+  color: #ffffff;
+  background: #cd5c5c;
+  border-bottom: none;
+}
+#hamburger {
+  display: block;
+  position: absolute;
+  top: 35px;
+  left: 30px;
+  width: 25px;
+  height: 22px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.inner_line {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 25px;
+  height: 3px;
+  background-color: #000000;
+  transition: 0.5s;
+  border-radius: 4px;
+}
+#line1 {
+  top: 0;
+}
+#line2 {
+  top: 10px;
+}
+#line3 {
+  bottom: 0px;
+}
+
+.in{
+  transform: translateX(100%);
+}
+
+.line_1,.line_2,.line_3{
+  background: #000000;
+}
+.line_1 {
+  width: 12px;
+  -webkit-transform: translate(-0.5px,6.5px) rotate(-33deg);
+  transform: translate(-0.5px,6.5px) rotate(-33deg);
+  }
+.line_2 {
+  width: 30px;
+}
+.line_3 {
+  width: 12px;
+  -webkit-transform: translate(-0.5px,-6.5px) rotate(33deg);
+  transform: translate(-0.5px,-6.5px) rotate(33deg);
+}
+
+@media screen and (max-width: 480px) {
+  #nav ul li {
+    font-size: 14px;
+  }
+}
