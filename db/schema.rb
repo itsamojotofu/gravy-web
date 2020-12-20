@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_081646) do
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "about", null: false
+    t.text "about"
     t.time "business_hour_begin", null: false
     t.time "business_hour_end", null: false
     t.integer "status_id", null: false

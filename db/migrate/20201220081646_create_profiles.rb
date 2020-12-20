@@ -1,7 +1,7 @@
 class CreateProfiles < ActiveRecord::Migration[6.0]
   def change
     create_table :profiles do |t|
-      t.text :about,                    null: false
+      t.text :about
       t.time :business_hour_begin,      null: false
       t.time :business_hour_end,        null: false
       t.integer :status_id,             null: false
