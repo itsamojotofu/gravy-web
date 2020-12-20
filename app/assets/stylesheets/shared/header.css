@@ -24,15 +24,16 @@ header {
 .nav {
   font-size: 20px;
   display: flex;
+  margin-left: 45vw;
   justify-content: space-between;
-  width: 100%;
+  width: 55vw;
   padding: 0;
 }
 
 .header-logo {
   width: 160px;
   height: 90px;
-  margin-left: 45vw; 
+
 }
 
 .nav-user {
