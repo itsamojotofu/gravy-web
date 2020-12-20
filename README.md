@@ -51,13 +51,14 @@
 
 ## profiles table
 
-| about          | text        | null: false                    |
-| business_hour  | string      | null: false                    |
-| status_id      | integer     | null: false                    |
-| gender_id      | integer     | null: false                    |
-| age_id         | integer     | null: false                    |
-| genre_id       | integer     | null: false                    |
-| chef           | references  | null: false, foreign_key: true |
+| about               | text        | null: false                    |
+| business_hour_begin | time        | null: false                    |
+| business_hour_end   | time        | null: false                    |
+| status_id           | integer     | null: false                    |
+| gender_id           | integer     | null: false                    |
+| age_id              | integer     | null: false                    |
+| genre_id            | integer     | null: false                    |
+| chef                | references  | null: false, foreign_key: true |
 
 ### Association
 - has_many :dishes
