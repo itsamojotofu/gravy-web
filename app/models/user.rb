@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -10,12 +12,12 @@ class User < ApplicationRecord
     validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :district
     validates :street
-    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: "is invalid"}
+    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'is invalid' }
   end
 
-  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'must include alphabet and numbers' }
+  validates :password,
+            format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'must include alphabet and numbers' }
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 end
-      

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :chef do
-    name              { Faker::Name.name }
+    name { Faker::Name.name }
     email                 { Faker::Internet.email }
     password              { "#{Faker::Internet.password(min_length: 4)}l1" }
     password_confirmation { password }

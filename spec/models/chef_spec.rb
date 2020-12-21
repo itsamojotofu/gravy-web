@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Chef do
@@ -73,7 +75,8 @@ describe Chef do
       it '郵便番号が空だと登録できない' do
         @chef.zip_code = ''
         @chef.valid?
-        expect(@chef.errors.full_messages).to include("Zip code can't be blank", 'Zip code needs to be filled in like 000-0000')
+        expect(@chef.errors.full_messages).to include("Zip code can't be blank",
+                                                      'Zip code needs to be filled in like 000-0000')
       end
       it '郵便番号がハイフンを含んでいないと購入できない' do
         @chef.zip_code = '1234567'

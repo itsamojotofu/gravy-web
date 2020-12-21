@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Genre < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
@@ -10,7 +12,7 @@ class Genre < ActiveHash::Base
     { id: 8, name: 'スイーツ' },
     { id: 9, name: 'その他' }
   ]
-  
+
   include ActiveHash::Associations
   has_many :profiles
 end
