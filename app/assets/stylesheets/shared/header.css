@@ -74,6 +74,7 @@ header {
 }
 #nav ul{
   padding-top: 80px;
+  text-align: center;
 }
 #nav ul li{
   list-style-type: none;
@@ -83,14 +84,12 @@ header {
   display: block;
   text-decoration: none;
   color: #000000;
-  margin: 0 15px;
-  padding: 10px;
+  margin: 2vh 5vw;
+  padding: auto;
   transition: .5s;
 }
 #nav li a:hover{
-  color: #ffffff;
-  background: #cd5c5c;
-  border-bottom: none;
+  background:#ffe54f;
 }
 #hamburger {
   display: block;

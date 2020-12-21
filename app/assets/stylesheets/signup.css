@@ -15,6 +15,16 @@
  align-items: center;
 }
 
+.chef-login-background{
+  height: calc(100vh - 100px);
+  width: 100vw;
+  position: fixed;
+  background-image: url(chef-login-background.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+ }
+
 .box {
   width: 400px;
   height: 500px;
@@ -39,6 +49,18 @@ h1 {
   color: #222222;
   text-align: center;
 }
+
+.signup-wrap h2 {
+  font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(131, 131, 131, 0.5);
+  font-size: 24px;
+  line-height: 1.5;
+  margin: 1vh 0 1vh;
+  padding-bottom: 5px;
+  color: #222222;
+  text-align: center;
+}
+
 
 .box-email {
   margin-bottom: 2vh;
@@ -145,12 +167,30 @@ h1 {
   padding-top: 2vh;
  }
 
+.chef-signup-background{
+  height: 140vh;
+  width: 100vw;
+  background-attachment: fixed;
+  background-image: url(chefs-signup-background.jpg);
+  background-size: cover;
+  padding-top: 2vh;
+ }
+
+.chef-signup-next-background{
+  height: 140vh;
+  width: 100vw;
+  background-attachment: fixed;
+  background-image: url(chefs-signup-next-background.jpg);
+  background-size: cover;
+  padding-top: 2vh;
+}
+
 .signup-wrap {
   min-width: 400px;
   width: 30%;
   background-color: white;
   padding: 1vh 2vw 3vh;
-  opacity: 0.95;
+  opacity: 0.9;
   margin: auto;
   border-radius: 20px;
   border: 2px #ddd solid;
