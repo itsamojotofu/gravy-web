@@ -1,9 +1,35 @@
 <header class="header">
 
-  <%= link_to image_tag("humbergur_button.png", class: "menu-icon"), "/" %>
+  <nav id="nav">
+    <ul>
+    　<h2>ユーザーの方はこちら</h2>
+      <% if user_signed_in? %>
+        <%= "ようこそ、" + User.find(current_user.id).nickname + "さん" %>
+        <li><%= link_to "マイページ", "/users/#{current_user.id}", class: "post-btn" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "post-btn" %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "post-btn" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "post-btn" %></li>
+      <% end %> 
+      <% if chef_signed_in? %>
+        <%= "ようこそ、" + Chef.find(current_chef.id).name + "さん" %>
+        <li><%= link_to "マイページ", "/chefs/#{current_chef.id}", class: "post-btn" %></li>
+        <li><%= link_to 'ログアウト', destroy_chef_session_path, method: :delete, class: "post-btn" %></li>
+      <% else %>
+        <h2>シェフの方はこちら</h2>
+        <li><%= link_to 'ログイン', new_chef_session_path, class: "post-btn" %></li>
+        <li><%= link_to '新規登録', new_chef_registration_path, class: "post-btn" %></li>
+      <% end %> 
+    </ul>
+  </nav>
+  <div id="hamburger">
+    <span class="inner_line" id="line1"></span>
+    <span class="inner_line" id="line2"></span>
+    <span class="inner_line" id="line3"></span>
+  </div>
   
   <div class ="nav"> 
-        <%= link_to image_tag("gravy_logo.png", class: "header-logo"), "/" %>
+      <%= link_to image_tag("gravy_logo.png", class: "header-logo"), "" %>
 
       <ul class="nav-user">
         <% if user_signed_in? %>
@@ -14,7 +40,19 @@
           <li><%= link_to '新規登録', new_user_registration_path, class: "post-btn" %></li>
         <% end %> 
       </ul>
-
   </div>
-  
+
+<script>
+function hamburger() {
+  document.getElementById('line1').classList.toggle('line_1');
+  document.getElementById('line2').classList.toggle('line_2');
+  document.getElementById('line3').classList.toggle('line_3');
+  document.getElementById('nav').classList.toggle('in');
+}
+document.getElementById('hamburger').addEventListener('click' , function () {
+  hamburger();
+} );
+</script>
+
+
 </header>

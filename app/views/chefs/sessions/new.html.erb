@@ -1,0 +1,44 @@
+<%= render "shared/second-header"%>
+
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="chef-login-background">
+  <div class="box">
+    <div class="box-inner">
+        <h1>Chef Login</h1>
+
+        <div class='login-flash-message'>
+        <%= flash[:notice] %>
+        <%= flash[:alert] %>
+        </div>
+
+        <div class="box-email">
+          <%= f.label :email, "Email" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="box-password">
+          <div class="a-row">
+            <div class="column-left">
+              <%= f.label :password, "Password" %>
+            </div>
+          </div>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+        <% if devise_mapping.rememberable? %>
+            <div class="remember">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember, "ログインしたままにする" %>
+            </div>
+        <% end %>
+        <div class="box-login">
+          <%= f.submit "ログイン" %>
+        </div>
+      <% end %>
+
+      <div class="box-newuser">
+        <p>Gravyを始めませんか？</p>
+        <%= link_to "新規登録", new_chef_registration_path %>
+      </div>
+    </div>
+  </div>
+</div>

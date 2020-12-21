@@ -1,0 +1,62 @@
+<%= render "shared/second-header"%>
+
+<%= form_with model: @profile, url: profiles_path, id: 'new_profile', class: 'new_profile', local: true do |f| %>
+<div class="chef-signup-next-background">
+  <div class="signup-wrap">
+    <div class="signup-title">
+      <h2>シェフについての情報</h2>
+    </div>
+
+    <%= render 'shared/error_messages', model: f.object %>
+    
+    <div class="wrap-inner">
+      <div class="box-email">
+        <label class="form-text">紹介文</label><br />
+        <%= f.text_area :about, class:"input-default", id:"about", placeholder:"例) 私はシェフです", maxlength:"1500" %>
+      </div>
+
+      <div class="box-email">
+        <label class="form-text">開業時間</label><br />
+        <%= f.time_field :business_hour_begin, autocomplete: "off", placeholder:"例)" %>
+      </div>
+
+      <div class="box-email">
+        <label class="form-text">閉業時間</label><br />
+        <%= f.time_field :business_hour_end, autocomplete: "off", placeholder:"例)" %>
+      </div>
+
+      <div class="box-email">
+        <label class="form-text">現在の状態</label><br />
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"status"}) %>
+      </div>
+
+      <div class="box-email">
+        <label class="form-text">性別</label><br />
+        <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"gender"}) %>
+      </div>
+
+      <div class="box-email">
+        <label class="form-text"></label>年代<br />
+        <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"select-box", id:"age"}) %>
+      </div>
+
+      <div class="box-email">
+        <label class="form-text">得意ジャンル</label><br />
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"genre"}) %>
+      </div>
+
+      </div>
+      <div class="box-signup">
+        <div class="legal-text">
+        サインアップすることで、
+        <%= link_to "利用規約", "#" %>
+        および<br>
+        <%= link_to "プライバシー規約", "#" %>
+        に同意するものとみなされます。
+        </div>
+        <%= f.submit "Sign UP" %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

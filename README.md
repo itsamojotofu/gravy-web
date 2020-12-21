@@ -20,14 +20,14 @@
 
 |Column |Type |Options |
 |-------|-----|--------|
-| nickname        | string      | null: false                 |
+| nickname        | string      | null: false                     |
 | email           | string      | null: false, uniqueness: true   |
-| password        | string      | null: false                 |
-| zip_code        | string      | null: false                 |
-| prefecture_id   | integer     | null: false                 |
-| district        | string      | null: false                 |
-| street          | string      | null: false                 |
-| phone_number    | string      | null: false                 |
+| password        | string      | null: false                     |
+| zip_code        | string      | null: false                     |
+| prefecture_id   | integer     | null: false                     |
+| district        | string      | null: false                     |
+| street          | string      | null: false                     |
+| phone_number    | string      | null: false                     |
 
 ### Association
 - has_many :orders
@@ -37,21 +37,32 @@
 |Column |Type |Options |
 |-------|-----|--------|
 | name           | string      | null: false                    |
-| about          | text        | null: false                    |
-| business_hour  | string      | null: false                    |
-| status_id      | integer     | null: false                    |
-| gender_id      | integer     | null: false                    |
-| age_id         | integer     | null: false                    |
-| genre_id       | integer     | null: false                    |
+| email          | string      | null: false, uniqueness: true  |
+| password       | string      | null: false                    |
 | zip_code       | string      | null: false                    |
 | prefecture_id  | integer     | null: false                    |
 | district       | string      | null: false                    |
 | street         | string      | null: false                    |
 | phone_number   | string      | null: false                    |
 
+### Association
+- has_many :dishes
+- has_one :profile
+
+## profiles table
+
+| about               | text        | null: false                    |
+| business_hour_begin | time        | null: false                    |
+| business_hour_end   | time        | null: false                    |
+| status_id           | integer     | null: false                    |
+| gender_id           | integer     | null: false                    |
+| age_id              | integer     | null: false                    |
+| genre_id            | integer     | null: false                    |
+| chef                | references  | null: false, foreign_key: true |
 
 ### Association
 - has_many :dishes
+- belongs_to :chef
 
 ## dishes table
 
