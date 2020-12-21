@@ -1,9 +1,36 @@
 # frozen_string_literal: true
 
 class Chefs::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
+  # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  def new
+    @chef = Chef.new
+  end
+
+  def create
+    @chef = Chef.new(sign_up_params)
+     unless @chef.valid?
+       render :new and return
+     end
+    session["devise.regist_data"] = {user: @chef.attributes}
+    session["devise.regist_data"][:user]["password"] = params[:chef][:password]
+    @profile = @chef.build_profile
+    render :new_profile
+  end
+
+  def create_profile
+    @chef = Chef.new(session["devise.regist_data"]["user"])
+    @profile = Profile.new(profile_params)
+     unless @profile.valid?
+       render :new_profile and return
+     end
+    @chef.build_profile(@profile.attributes)
+    @chef.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:chef, @chef)
+    redirect_to root_path
+  end
   # GET /resource/sign_up
   # def new
   #   super
@@ -42,8 +69,12 @@ class Chefs::RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :zip_code, :prefecture_id, :district, :street, :phone_number])
+  # def sign_up_params
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :zip_code, :prefecture_id, :district, :street, :phone_number])
+  # end
+
+  def profile_params
+    params.require(:profile).permit(:about, :business_hour_begin, :business_hour_end, :status_id, :gender_id, :age_id, :genre_id)
   end
 
 
