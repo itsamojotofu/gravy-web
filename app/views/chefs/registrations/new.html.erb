@@ -1,10 +1,10 @@
 <%= render "shared/second-header"%>
 
 <%= form_with model: @chef, url: chef_registration_path, id: 'new_chef', class: 'new_chef', local: true do |f| %>
-<div class="signup-background">
+<div class="chef-signup-background">
   <div class="signup-wrap">
     <div class="signup-title">
-      <h1>シェフ用アカウント</h1>
+      <h2>シェフ用アカウント</h2>
     </div>
 
     <%= render 'shared/error_messages', model: f.object %>
@@ -12,7 +12,7 @@
     <div class="wrap-inner">
       <div class="box-email">
         <label class="form-text">お名前</label><br />
-        <%= f.text_field :name, class:"input-default", id:"nickname", placeholder:"例) gravy太郎", maxlength:"30" %>
+        <%= f.text_field :name, class:"input-default", id:"nickname", placeholder:"例) gravy花子", maxlength:"30" %>
       </div>
 
       <div class="box-email">
@@ -60,14 +60,7 @@
 
       </div>
       <div class="box-signup">
-        <div class="legal-text">
-        サインアップすることで、
-        <%= link_to "利用規約", "#" %>
-        および<br>
-        <%= link_to "プライバシー規約", "#" %>
-        に同意するものとみなされます。
-        </div>
-        <%= f.submit "Sign up" %>
+        <%= f.submit "Next" %>
       </div>
     </div>
   </div>

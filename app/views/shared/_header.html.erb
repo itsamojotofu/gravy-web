@@ -2,9 +2,24 @@
 
   <nav id="nav">
     <ul>
-      <li><a href="#">SUMPLE1</a></li>
-      <li><a href="#">SUMPLE2</a></li>
-      <li><a href="#">SUMPLE3</a></li>
+    　<h2>ユーザーの方はこちら</h2>
+      <% if user_signed_in? %>
+        <%= "ようこそ、" + User.find(current_user.id).nickname + "さん" %>
+        <li><%= link_to "マイページ", "/users/#{current_user.id}", class: "post-btn" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "post-btn" %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "post-btn" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "post-btn" %></li>
+      <% end %> 
+      <% if chef_signed_in? %>
+        <%= "ようこそ、" + Chef.find(current_chef.id).name + "さん" %>
+        <li><%= link_to "マイページ", "/chefs/#{current_chef.id}", class: "post-btn" %></li>
+        <li><%= link_to 'ログアウト', destroy_chef_session_path, method: :delete, class: "post-btn" %></li>
+      <% else %>
+        <h2>シェフの方はこちら</h2>
+        <li><%= link_to 'ログイン', new_chef_session_path, class: "post-btn" %></li>
+        <li><%= link_to '新規登録', new_chef_registration_path, class: "post-btn" %></li>
+      <% end %> 
     </ul>
   </nav>
   <div id="hamburger">
