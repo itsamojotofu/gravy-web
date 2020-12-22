@@ -159,30 +159,27 @@ h1 {
 }
 
 .signup-background{
-  height: 140vh;
   width: 100vw;
   background-attachment: fixed;
   background-image: url(signup-background.jpg);
   background-size: cover;
-  padding-top: 2vh;
+  padding: 2.3vh 0 2.3vh;
  }
 
 .chef-signup-background{
-  height: 140vh;
   width: 100vw;
   background-attachment: fixed;
   background-image: url(chefs-signup-background.jpg);
   background-size: cover;
-  padding-top: 2vh;
+  padding: 3vh 0 3.7vh;
  }
 
 .chef-signup-next-background{
-  height: 140vh;
   width: 100vw;
   background-attachment: fixed;
   background-image: url(chefs-signup-next-background.jpg);
   background-size: cover;
-  padding-top: 2vh;
+  padding: 3vh 0 3vh;
 }
 
 .signup-wrap {
