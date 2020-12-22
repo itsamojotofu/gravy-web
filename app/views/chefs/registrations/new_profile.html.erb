@@ -21,32 +21,38 @@
       </div>
 
       <div class="box-email">
-        <label class="form-text">開業時間</label><br />
+        <label class="form-text">開業時間</label>
+        <span class="required">Required</span><br />
         <%= f.time_field :business_hour_begin, autocomplete: "off", placeholder:"例)" %>
       </div>
 
       <div class="box-email">
-        <label class="form-text">閉業時間</label><br />
+        <label class="form-text">閉業時間</label>
+        <span class="required">Required</span><br />
         <%= f.time_field :business_hour_end, autocomplete: "off", placeholder:"例)" %>
       </div>
 
       <div class="box-email">
-        <label class="form-text">現在の状態</label><br />
+        <label class="form-text">現在の状態</label>
+        <span class="required">Required</span><br />
         <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"status"}) %>
       </div>
 
       <div class="box-email">
-        <label class="form-text">性別</label><br />
+        <label class="form-text">性別</label>
+        <span class="required">Required</span><br />
         <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"gender"}) %>
       </div>
 
       <div class="box-email">
-        <label class="form-text"></label>年代<br />
+        <label class="form-text">年代</label>
+        <span class="required">Required</span><br />
         <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"select-box", id:"age"}) %>
       </div>
 
       <div class="box-email">
-        <label class="form-text">得意ジャンル</label><br />
+        <label class="form-text">得意ジャンル</label>
+        <span class="required">Required</span><br />
         <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"genre"}) %>
       </div>
 

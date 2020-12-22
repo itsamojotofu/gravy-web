@@ -158,6 +158,16 @@ h1 {
   color: red;
 }
 
+.required {
+  background: #ebb11f;
+  margin-left: 5px;
+  padding: 1px 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+}
+
 .signup-background{
   width: 100vw;
   background-attachment: fixed;
