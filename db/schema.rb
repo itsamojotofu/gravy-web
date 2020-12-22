@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_22_033730) do
+ActiveRecord::Schema.define(version: 2020_12_22_080108) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 2020_12_22_033730) do
     t.index ["reset_password_token"], name: "index_chefs_on_reset_password_token", unique: true
   end
 
+  create_table "dishes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "about"
+    t.integer "ready_min", null: false
+    t.integer "price", null: false
+    t.bigint "chef_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chef_id"], name: "index_dishes_on_chef_id"
+  end
+
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "about"
     t.time "business_hour_begin", null: false
@@ -84,5 +95,6 @@ ActiveRecord::Schema.define(version: 2020_12_22_033730) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "dishes", "chefs"
   add_foreign_key "profiles", "chefs"
 end
