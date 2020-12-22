@@ -11,6 +11,11 @@
     
     <div class="wrap-inner">
       <div class="box-email">
+        <%= f.label :image, "シェフの画像" %><br />
+        <%= f.file_field :image %>
+      </div>
+      
+      <div class="box-email">
         <label class="form-text">紹介文</label><br />
         <%= f.text_area :about, class:"input-default", id:"about", placeholder:"例) 私はシェフです", maxlength:"1500" %>
       </div>

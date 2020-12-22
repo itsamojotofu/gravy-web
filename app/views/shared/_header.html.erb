@@ -2,12 +2,12 @@
 
   <nav id="nav">
     <ul>
-    　<h2>ユーザーの方はこちら</h2>
       <% if user_signed_in? %>
         <%= "ようこそ、" + User.find(current_user.id).nickname + "さん" %>
         <li><%= link_to "マイページ", "/users/#{current_user.id}", class: "post-btn" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "post-btn" %></li>
       <% else %>
+        <h2>ユーザーの方はこちら</h2>
         <li><%= link_to 'ログイン', new_user_session_path, class: "post-btn" %></li>
         <li><%= link_to '新規登録', new_user_registration_path, class: "post-btn" %></li>
       <% end %> 

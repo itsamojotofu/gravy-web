@@ -73,8 +73,7 @@ module Chefs
     # end
 
     def profile_params
-      params.require(:profile).permit(:about, :business_hour_begin, :business_hour_end, :status_id, :gender_id, :age_id,
-                                      :genre_id)
+      params.require(:profile).permit(:image, :about, :business_hour_begin, :business_hour_end, :status_id, :gender_id, :age_id, :genre_id)
     end
 
     # If you have extra params to permit, append them to the sanitizer.
