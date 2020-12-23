@@ -66,16 +66,16 @@
       <div>
         <div class="price-content">
           <span class="sell-yen">¥</span>
-          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）1200" %>
+          <%= f.text_field :price, class:"price-input", id:"dish-price", placeholder:"例）1200" %>
         </div>
         <div class="price-content">
-          <span>販売手数料 (10%)</span>
+          <span>手数料 (5%)</span>
           <span>
             <span id='add-tax-price'></span>円
           </span>
         </div>
         <div class="price-content">
-          <span>販売利益</span>
+          <span>利益</span>
           <span>
             <span id='profit'></span>円
         </div>
@@ -95,7 +95,9 @@
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "料理を追加する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <div class="sell-btn-contents">  
+      <%=link_to 'マイページ', "/chefs/#{current_chef.id}", class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
