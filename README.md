@@ -51,7 +51,7 @@
 
 ## profiles table
 
-| about               | text        | null: false                    |
+| about               | text        |                                |
 | business_hour_begin | time        | null: false                    |
 | business_hour_end   | time        | null: false                    |
 | status_id           | integer     | null: false                    |
@@ -61,7 +61,6 @@
 | chef                | references  | null: false, foreign_key: true |
 
 ### Association
-- has_many :dishes
 - belongs_to :chef
 
 ## dishes table
@@ -69,7 +68,9 @@
 |Column |Type |Options |
 |-------|-----|--------|
 | name        | string      | null: false                    |
-| price       | string      | null: false                    |
+| about       | text        |                                |
+| ready_id    | integer     | null: false                    |
+| price       | integer     | null: false                    |
 | chef        | references  | null: false, foreign_key: true |
 
 
