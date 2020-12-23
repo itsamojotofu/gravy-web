@@ -11,6 +11,6 @@ class Dish < ApplicationRecord
   end
 
   validates :price, numericality: { with: /\A[0-9]+\z/, message: 'should be half-width numbers' }
-  validates :price, numericality: { greater_than: 99, less_than: 1_000_000, message: 'should be within ¥100~¥9,999,999' }
+  validates :price, numericality: { greater_than: 99, less_than: 1_000_000, message: 'should be within ¥100~¥999,999' }
 
 end
