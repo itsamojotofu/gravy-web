@@ -54,7 +54,8 @@ ActiveRecord::Schema.define(version: 2020_12_22_080108) do
   create_table "dishes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "about"
-    t.integer "ready_min", null: false
+    t.integer "genre_id", null: false
+    t.integer "ready_id", null: false
     t.integer "price", null: false
     t.bigint "chef_id"
     t.datetime "created_at", precision: 6, null: false

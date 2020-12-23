@@ -1,0 +1,106 @@
+<%= render "shared/second-header"%>
+
+<div class="items-sell-contents">
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">料理の情報を入力</h2>
+    <%= form_with model: @dish, url: dishes_path, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <%# 出品画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        料理の画像
+        <span class="required">Required</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+    <%# /出品画像 %>
+    <%# 商品名と商品説明 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        商品名
+        <span class="required">Required</span>
+      </div>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"料理名名（必須 30文字まで)", maxlength:"30" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          料理の説明
+          <span class="required">Required</span>
+        </div>
+        <%= f.text_area :about, class:"items-text", id:"item-info", placeholder:"料理の説明（必須 500文字まで）（素材、重さ、アレルギーの注意点など）例）地元のトマトをふんだんに使ったミートソースのパスタです。アレルギー：小麦" ,rows:"5" ,maxlength:"500" %>
+      </div>
+    </div>
+    <%# /商品名と商品説明 %>
+
+    <%#料理の詳細 %>
+    <div class="items-detail">
+      <div class="weight-bold-text">料理の詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="required">Required</span>
+        </div>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <div class="weight-bold-text">
+          調理時間(分)
+          <span class="required">Required</span>
+        </div>
+        <%= f.collection_select(:ready_id, Ready.all, :id, :name, {}, {class:"select-box", id:"ready-status"}) %>
+      </div>
+    </div>
+    <%# /料理の詳細 %>
+
+    <%# 価格 %>
+    <div class="sell-price">
+      <div class="weight-bold-text question-text">
+        <span>価格<span class="required">Required</span>
+        <br>(¥100〜9,999,999)   
+        </span>
+      </div>
+
+      <div>
+        <div class="price-content">
+          <span class="sell-yen">¥</span>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）1200" %>
+        </div>
+        <div class="price-content">
+          <span>販売手数料 (10%)</span>
+          <span>
+            <span id='add-tax-price'></span>円
+          </span>
+        </div>
+        <div class="price-content">
+          <span>販売利益</span>
+          <span>
+            <span id='profit'></span>円
+        </div>
+        </span>
+      </div>
+    </div>
+    <%# /価格 %>
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        <a href="#">禁止されている料理、</a>
+        を必ずご確認ください。
+      </p>
+    </div>
+    <%# /注意書き %>
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "料理を追加する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+</div>
+
+<%= render "shared/second-footer" %>

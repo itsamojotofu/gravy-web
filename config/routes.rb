@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'dishes#index'
+
+  resources :dishes
 end

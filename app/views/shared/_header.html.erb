@@ -15,6 +15,7 @@
         <%= "ようこそ、" + Chef.find(current_chef.id).name + "さん" %>
         <li><%= link_to "マイページ", "/chefs/#{current_chef.id}", class: "post-btn" %></li>
         <li><%= link_to 'ログアウト', destroy_chef_session_path, method: :delete, class: "post-btn" %></li>
+        <li><%= link_to "料理をメニューに追加", "/dishes/new" %></li>
       <% else %>
         <h2>シェフの方はこちら</h2>
         <li><%= link_to 'ログイン', new_chef_session_path, class: "post-btn" %></li>

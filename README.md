@@ -61,7 +61,6 @@
 | chef                | references  | null: false, foreign_key: true |
 
 ### Association
-- has_many :dishes
 - belongs_to :chef
 
 ## dishes table
@@ -70,7 +69,7 @@
 |-------|-----|--------|
 | name        | string      | null: false                    |
 | about       | text        |                                |
-| ready_min   | integer     | null: false                    |
+| ready_id    | integer     | null: false                    |
 | price       | integer     | null: false                    |
 | chef        | references  | null: false, foreign_key: true |
 
