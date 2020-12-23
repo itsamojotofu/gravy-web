@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :dish do
-    name                 { 'ハンバーグ' }
+    name { 'ハンバーグ' }
     genre_id              { 2 }
     ready_id              { 2 }
     price               { Faker::Number.between(from: 100, to: 999_999) }

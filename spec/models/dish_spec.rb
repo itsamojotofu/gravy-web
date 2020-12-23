@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Dish do
   before do
-    @dish= FactoryBot.build(:dish)
+    @dish = FactoryBot.build(:dish)
   end
 
   describe '料理出品登録' do

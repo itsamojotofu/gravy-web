@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class DishesController < ApplicationController
-  def index
-  end
+  def index; end
 
   def new
     @dish = Dish.new
@@ -18,12 +17,9 @@ class DishesController < ApplicationController
     end
   end
 
-
-
   private
 
   def dish_params
     params.require(:dish).permit(:image, :name, :about, :genre_id, :ready_id, :price).merge(chef_id: current_chef.id)
   end
-
 end
