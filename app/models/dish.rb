@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Dish < ApplicationRecord
-  belongs_to :chef, optional: true
+  belongs_to :chef
   has_one_attached :image
 
   with_options presence: true do

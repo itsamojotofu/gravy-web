@@ -1,6 +1,6 @@
 
 .gravy-home {
-  height: 200vh;
+
   width: 100%;
   position: relative;
   background-color: #ffe54f;
@@ -54,3 +54,133 @@
   width: 100%;
   background-color: white;
 }
+
+/* 料理一覧 (シェフ一覧と共通)*/
+
+.dish-contents {
+  width: 100%;
+  background-color: #f7e26c;
+  padding: 3vh 2vw 2vh;
+}
+
+.recent-dishes {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 2vh 2vw 1vh;
+  border-bottom: 5px gold double;
+  margin-bottom: 10px;
+}
+
+.dish-contents .title {
+  font-size: 3.5vh;
+  line-height: 1.2;
+  color: #222222;
+  font-weight: 400;
+}
+
+.subtitle {
+  font-size: 2vh;
+  margin: 1vh 0;
+  color: #222222;
+  font-weight: 400;
+}
+
+.subtitle:hover {
+  text-decoration: underline;
+}
+
+
+.dish-lists{
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.dish-lists>.list {
+  display: inline-block;
+  width: 30vh;
+  padding: 1.5vw 1.5vw 0;
+  background-color: white;
+  border: 1px gray solid;
+}
+
+.dish-img-content {
+  position: relative;
+}
+
+.dish-img {
+  width: 25vh;
+  height: 25vh;
+  border: 1px gray solid;
+  background-color: white;
+}
+
+// .sold-out {
+//   position: absolute;
+//   top: 40%;
+//   width: 100%;
+//   text-align: center;
+//   background-color: crimson;
+//   transform: skewY(-10deg);
+// }
+
+// .sold-out>span {
+//   color: #FFF;
+//   font-size: 45px;
+//   font: bold;
+// }
+
+
+.dish-info {
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  padding: 1vh;
+}
+
+.dish-name {
+  width: 180px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 2vh;
+  margin-bottom: 5px;
+}
+
+.dish-price {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.heart-btn {
+  display: flex;
+  align-items: center;
+  margin-right: 1vw;
+}
+
+.heart-icon {
+  height: 2vh;
+  width: 2vh;
+  margin-right: 0.5vw;
+}
+
+.heart-count {
+  font-size: 2vh;
+}
+
+/* //商品一覧 */
+
+
+#scrollArea {
+  width: 200px;
+  overflow: auto;
+  border: solid 1px #aaa;
+}
+#inner {
+  width: 2000px;
+  height: 40px;
+}
+

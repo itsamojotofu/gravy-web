@@ -24,7 +24,7 @@
     <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
-        商品名
+        料理名
         <span class="required">Required</span>
       </div>
       <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"料理名（必須 30文字まで)", maxlength:"30" %>
@@ -45,7 +45,7 @@
           カテゴリー
           <span class="required">Required</span>
         </div>
-        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"dish-category"}) %>
         <div class="weight-bold-text">
           調理時間(分)
           <span class="required">Required</span>
