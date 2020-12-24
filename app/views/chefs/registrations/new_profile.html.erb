@@ -1,5 +1,6 @@
 <%= render "shared/second-header"%>
 
+
 <%= form_with model: @profile, url: profiles_path, id: 'new_profile', class: 'new_profile', local: true do |f| %>
 <div class="chef-signup-next-background">
   <div class="signup-wrap">
@@ -10,10 +11,20 @@
     <%= render 'shared/error_messages', model: f.object %>
     
     <div class="wrap-inner">
-      <div class="box-email">
-        <%= f.label :image, "シェフの画像" %><br />
-        <%= f.file_field :image %>
+      <%# 出品画像 %>
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          料理の画像
+          <span class="required">Required</span>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"item-image" %>
+        </div>
       </div>
+    <%# /出品画像 %>
       
       <div class="box-email">
         <label class="form-text">紹介文</label><br />

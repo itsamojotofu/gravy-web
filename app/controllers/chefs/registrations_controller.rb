@@ -24,7 +24,10 @@ module Chefs
       @profile = Profile.new(profile_params)
       render :new_profile and return unless @profile.valid?
 
-      @chef.build_profile(@profile.attributes)
+      # @chef.build_profile(@profile.attributes)
+      @chef.save
+      @profile.chef_id = @chef.id
+      @profile.save
       @chef.save
       session['devise.regist_data']['user'].clear
       sign_in(:chef, @chef)

@@ -22,4 +22,5 @@ class Chef < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   has_one :profile
+  has_many :dishes
 end
