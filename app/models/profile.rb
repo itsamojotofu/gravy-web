@@ -6,7 +6,7 @@ class Profile < ApplicationRecord
 
   with_options presence: true do
     validates :image
-    validates :business_hour_begin 
+    validates :business_hour_begin
     validates :business_hour_end
     validates :status_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :gender_id, numericality: { other_than: 1, message: "can't be blank" }
