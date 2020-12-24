@@ -20,11 +20,14 @@ module Chefs
     end
 
     def create_profile
+
       @chef = Chef.new(session['devise.regist_data']['user'])
       @profile = Profile.new(profile_params)
       render :new_profile and return unless @profile.valid?
-
-      @chef.build_profile(@profile.attributes)
+      # @chef.build_profile(@profile.attributes)
+      @chef.save
+      @profile.chef_id = @chef.id
+      @profile.save
       @chef.save
       session['devise.regist_data']['user'].clear
       sign_in(:chef, @chef)
@@ -73,8 +76,7 @@ module Chefs
     # end
 
     def profile_params
-      params.require(:profile).permit(:image, :about, :business_hour_begin, :business_hour_end, :status_id,
-                                      :gender_id, :age_id, :genre_id)
+      params.require(:profile).permit(:image, :about, :business_hour_begin, :business_hour_end, :status_id, :gender_id, :age_id, :genre_id)
     end
 
     # If you have extra params to permit, append them to the sanitizer.

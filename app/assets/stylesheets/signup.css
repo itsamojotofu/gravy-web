@@ -4,6 +4,7 @@
   text-decoration: none;
 }
 
+
 .login-background{
  margin-top: -30px;
  height: 100vh;
@@ -61,8 +62,12 @@ h1 {
   text-align: center;
 }
 
+.signup-title h2 {
+  margin: 2vh 0 2vh;
+}
 
 .box-email {
+  margin-top: 1vh;
   margin-bottom: 2vh;
 }
 
@@ -73,9 +78,10 @@ h1 {
 .box-email label, .box-password label {
   font-weight: 700;
   font-size: 13px;
-  padding-left: 2px;
-  padding-bottom: 2px;
+  padding-left: 3px;
+  padding-bottom: 3px;
 }
+
 
 .box-email input[type="email"], .box-password input[type="password"] {
   border-style: none;

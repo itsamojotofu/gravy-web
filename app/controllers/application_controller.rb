@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   private
 
   def cpp
-    devise_parameter_sanitizer.permit(:sign_up,
-                                      keys: %i[name zip_code prefecture_id district street phone_number])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :zip_code, :prefecture_id, :district, :street, :phone_number])
   end
 end
