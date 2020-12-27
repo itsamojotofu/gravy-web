@@ -1,0 +1,79 @@
+<%= render "shared/header" %>
+
+
+<%# 商品の概要 %>
+<div class="dish-show">
+  <div class="dish-box">
+    <div class="dish-show-info">
+      <div class='dish-img-content'>
+        <%= image_tag @dish.image,class:"dish-box-img" %>
+      </div>
+      <div class="dish-price-box">
+        <span class="dish-show-name">
+          <%= @dish.name %>
+        </span>
+        <span class="dish-price">
+          ¥ <%= @dish.price %>
+        </span>
+        <span class="dish-genre">
+          ジャンル:<%= @dish.genre.name %>
+        </span>
+        <% if @dish.about.present?%>
+          <span class="dish-about">
+          <%= @dish.about %>
+          </span>
+        <% end %>
+        <% if chef_signed_in? %>
+          <% if current_chef.id == @dish.chef.id %>
+          <%= link_to '商品の編集', edit_dish_path(@dish.id), method: :get, class: "dish-red-btn" %>
+          <p class='or-text'>or</p>
+          <%= link_to '削除', dish_path(@dish.id), method: :delete, class:'dish-destroy' %>
+          <% end %>   
+        <% end %>
+
+        <% if user_signed_in? %>
+          <% if current_user.prefecture.name == @dish.chef.prefecture.name %>
+          <%# 商品が売れていない場合はこちらを表示しましょう %>
+          <%# <%= link_to '購入画面に進む', item_records_path(@item.id),class:"item-red-btn"%> 購入に進む
+          <%# //商品が売れていない場合はこちらを表示しましょう %>
+          <% else %>
+            ※配達対象地域ではありません※
+          <% end %>
+        <% end %>
+      </div>
+      
+    </div>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-dish">調理者</th>
+          <td class="detail-value"><%= @dish.chef.name %>シェフ</td>
+        </tr>
+        <tr>
+          <th class="detail-dish">年代/性別</th>
+          <td class="detail-value"><%= @dish.chef.profile.age.name %> / <%= @dish.chef.profile.gender.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-dish">発送元の地域</th>
+          <td class="detail-value"><%= @dish.chef.prefecture.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-dish">発送時間の目安</th>
+          <%# フードデリバリーの平均配達時間:20分 %>
+          <td class="detail-value"><%= @dish.ready.name.to_i + 20 %>分</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="option">
+      <div class="heart-btn">
+        <%= image_tag "heart.png" ,class:"heart-icon" ,width:"20",height:"20"%>
+        <span>お気に入り数 12</span>
+      </div>
+    </div>
+  </div>
+  <%# /商品の概要 %>
+
+</div>
+
+<%= render "shared/footer" %>

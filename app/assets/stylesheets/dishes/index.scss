@@ -49,7 +49,7 @@
   font-size: 3vh;
 }
 
-.howto {
+.mobile-app-intro {
   height: 100vh;
   width: 100%;
   background-color: white;
@@ -95,6 +95,7 @@
   width: 100%;
   overflow-x: auto;
   white-space: nowrap;
+  margin: 3vh 2vh 1vh;
 }
 
 .dish-lists>.list {
@@ -102,7 +103,11 @@
   width: 30vh;
   padding: 1.5vw 1.5vw 0;
   background-color: white;
-  border: 1px gray solid;
+  border: 1px rgb(180, 180, 180) solid;
+}
+
+.dish-lists>.list:hover {
+  border: 1px rgb(39, 39, 39) solid;
 }
 
 .dish-img-content {
@@ -114,6 +119,10 @@
   height: 25vh;
   border: 1px gray solid;
   background-color: white;
+}
+
+.dish-img:hover {
+  border: 1px rgb(39, 39, 39) solid;
 }
 
 // .sold-out {

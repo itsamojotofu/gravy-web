@@ -15,5 +15,5 @@ class Genre < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :profiles
-  has_many :chefs
+  has_many :dishes
 end
