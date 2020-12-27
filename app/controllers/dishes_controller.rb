@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class DishesController < ApplicationController
-  before_action :authenticate_chef!, except: [:index, :show]
-  before_action :set_dish, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_index, only: [:edit, :destroy, :update]
+  before_action :authenticate_chef!, except: %i[index show]
+  before_action :set_dish, only: %i[show edit update destroy]
+  before_action :move_to_index, only: %i[edit destroy update]
 
   def index
     @dishes = Dish.all.order(created_at: 'DESC')
@@ -24,10 +24,7 @@ class DishesController < ApplicationController
     end
   end
 
-  def show
-  end
-
-
+  def show; end
 
   private
 

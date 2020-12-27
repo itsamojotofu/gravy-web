@@ -18,5 +18,4 @@ class Dish < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :ready
   belongs_to_active_hash :genre
-
 end

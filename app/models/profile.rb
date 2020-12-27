@@ -23,8 +23,6 @@ class Profile < ApplicationRecord
   belongs_to_active_hash :genre
 
   def business_hour_cannot_be_the_same
-    if business_hour_begin == business_hour_end
-      errors.add(:business_hour_begin, "cannot be equal to business hour end")
-    end
+    errors.add(:business_hour_begin, 'cannot be equal to business hour end') if business_hour_begin == business_hour_end
   end
 end
