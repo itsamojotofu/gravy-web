@@ -1,0 +1,55 @@
+<%= render "shared/header" %>
+
+
+<div class="chef__inner">
+  <div class="chef__wrapper">
+    <h2 class="page-heading">
+      <%= "#{@chef.name}シェフのプロフィール"%>
+    </h2>
+    <div class="chef-show-info">
+      <div class='dish-img-content'>
+        <%= image_tag @chef.profile.image, class:"dish-box-img" %>
+      </div>
+      <table class="chef-show-table">
+        <tbody>
+          <tr>
+            <th class="table__col1">シェフについて</th>
+            <td class="table__col2"><%= @chef.profile.about %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">営業時間</th>
+            <td class="table__col2"><%= @chef.profile.business_hour_begin.strftime('%H:%M') %> 〜 <%= @chef.profile.business_hour_end.strftime('%H:%M') %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">提供地域</th>
+            <td class="table__col2"><%= @chef.prefecture.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">ステータス</th>
+            <td class="table__col2"><%= @chef.profile.status.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">性別</th>
+            <td class="table__col2"><%= @chef.profile.gender.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">年代</th>
+            <td class="table__col2"><%= @chef.profile.age.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">得意ジャンル</th>
+            <td class="table__col2"><%= @chef.profile.genre.name %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2 class="page-heading">
+      <%= "#{@chef.name}シェフのメニュー"%>
+    </h2>
+    <div class="chef__card">
+      <%= render partial: 'dish', collection: @dishes %>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

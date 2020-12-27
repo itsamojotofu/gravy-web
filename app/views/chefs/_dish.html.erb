@@ -1,0 +1,21 @@
+<div class='list'>
+  <%= link_to dish_path(dish.id) do %>
+  <div class='dish-img-content'>
+    <%= image_tag dish.image, class: "dish-img" %>
+  </div>
+  <div class='dish-info'>
+    <div>
+      <h3 class='dish-name'>
+        <%= dish.name %>
+      </h3>
+      <div class='dish-price'>
+        <span><%= dish.price %>円 / <%= dish.chef.name %>シェフ</span>
+      </div>
+    </div>
+    <div class='heart-btn'>
+    <%= image_tag "heart.png", :size =>'20x20', class:"heart-icon" %>
+    <span class='heart-count'>0</span>
+    </div>
+  </div>
+  <% end %>
+</div>
