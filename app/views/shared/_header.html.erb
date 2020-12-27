@@ -4,19 +4,17 @@
     <ul>
       <% if user_signed_in? %>
         <%= "ようこそ、" + User.find(current_user.id).nickname + "さん" %>
-        <li><%= link_to "マイページ", "/users/#{current_user.id}", class: "post-btn" %></li>
+        <li><%= link_to "料理を探す", "#", class: "post-btn" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "post-btn" %></li>
-      <% else %>
-        <h2>ユーザーの方はこちら</h2>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "post-btn" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "post-btn" %></li>
-      <% end %> 
-      <% if chef_signed_in? %>
+      <% elsif chef_signed_in? %>
         <%= "ようこそ、" + Chef.find(current_chef.id).name + "さん" %>
         <li><%= link_to "マイページ", "/chefs/#{current_chef.id}", class: "post-btn" %></li>
         <li><%= link_to 'ログアウト', destroy_chef_session_path, method: :delete, class: "post-btn" %></li>
         <li><%= link_to "料理をメニューに追加", "/dishes/new" %></li>
       <% else %>
+        <h2>ユーザーの方はこちら</h2>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "post-btn" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "post-btn" %></li>
         <h2>シェフの方はこちら</h2>
         <li><%= link_to 'ログイン', new_chef_session_path, class: "post-btn" %></li>
         <li><%= link_to '新規登録', new_chef_registration_path, class: "post-btn" %></li>
@@ -30,12 +28,15 @@
   </div>
   
   <div class ="nav"> 
-      <%= link_to image_tag("gravy_logo.png", class: "header-logo"), "" %>
+      <%= link_to image_tag("gravy_logo.png", class: "header-logo"), root_path %>
 
       <ul class="nav-user">
         <% if user_signed_in? %>
-          <li><%= link_to "マイページ", "/users/#{current_user.id}", class: "post-btn" %></li>
+          <li><%= link_to "料理を探す", "#", class: "post-btn" %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "post-btn" %></li>
+        <% elsif chef_signed_in? %>
+          <li><%= link_to "マイページ", "/chefs/#{current_chef.id}", class: "post-btn" %></li>
+          <li><%= link_to 'ログアウト', destroy_chef_session_path, method: :delete, class: "post-btn" %></li>
         <% else %>
           <li><%= link_to 'ログイン', new_user_session_path, class: "post-btn" %></li>
           <li><%= link_to '新規登録', new_user_registration_path, class: "post-btn" %></li>

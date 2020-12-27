@@ -1,0 +1,52 @@
+.chef__inner{
+  width: 100%;
+  padding: 3vh;
+}
+
+.chef__wrapper{
+  padding-top: 90px;
+}
+
+.chef__wrapper h2{
+  background-color: white;
+  width: 100%;
+  text-align: center;
+  font-size: 2vh;
+  font-weight: bold;
+  padding: 2vh;
+  border-bottom: 2px rgb(180, 180, 180) double;
+}
+
+.chef-show-info{
+  display: flex;
+  justify-content: space-around;
+  padding: 4vh;
+}
+
+.chef-show-table{
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  width: 50%;
+}
+.table__col1{
+  text-align: left;
+  font-weight: bold;
+  background: #fafafa;
+  border-collapse: collapse;
+  border: 1px solid #f5f5f5;
+  width: 30%;
+  padding: 8px;
+}
+.table__col2{
+  text-align: left;
+  border: 1px solid #f5f5f5;
+  border-collapse: collapse;
+  width: 70%;
+  padding: 16px 8px;
+}
+.chef__card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
