@@ -19,9 +19,9 @@
           ジャンル:<%= @dish.genre.name %>
         </span>
         <% if @dish.about.present?%>
-          <span class="dish-about">
+          <div class="dish-about">
           <%= @dish.about %>
-          </span>
+          </div>
         <% end %>
         <% if chef_signed_in? %>
           <% if current_chef.id == @dish.chef.id %>
