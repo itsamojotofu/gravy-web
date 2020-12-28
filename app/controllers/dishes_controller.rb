@@ -24,7 +24,24 @@ class DishesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @dish.update(dish_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @dish.destroy
+    redirect_to root_path
+  end
 
   private
 
