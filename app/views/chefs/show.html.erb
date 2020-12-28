@@ -5,6 +5,9 @@
   <div class="chef__wrapper">
     <h2 class="page-heading">
       <%= "#{@chef.name}シェフのプロフィール"%>
+      <% if chef_signed_in? && current_chef.id == @chef.id %>
+          <%= link_to 'プロフィールの更新', edit_profile_path(@chef.profile.id), method: :get, class: "post-btn" %> 
+        <% end %>
     </h2>
     <div class="chef-show-info">
       <div class='dish-img-content'>
@@ -42,6 +45,7 @@
           </tr>
         </tbody>
       </table>
+    
     </div>
     <h2 class="page-heading">
       <%= "#{@chef.name}シェフのメニュー"%>
