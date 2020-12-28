@@ -30,7 +30,7 @@
 | phone_number    | string      | null: false                     |
 
 ### Association
-- has_many :orders
+- has_many :dishes, through: :orders
 
 ## chefs table
 
@@ -76,7 +76,7 @@
 
 ### Association
 - belongs_to :chef
-- has_one :order
+- has_many :users, through: :orders
 - has_many :dish_tag_relations
 - has_many :tags, through: :dish_tag_relations
 
