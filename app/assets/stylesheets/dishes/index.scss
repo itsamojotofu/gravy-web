@@ -101,7 +101,7 @@
 .dish-lists>.list {
   display: inline-block;
   width: 30vh;
-  padding: 1.5vw 1.5vw 0;
+  padding: 2vh 1.5vw 0.5vh;
   background-color: white;
   border: 1px rgb(180, 180, 180) solid;
 }
@@ -125,28 +125,14 @@
   border: 1px rgb(39, 39, 39) solid;
 }
 
-// .sold-out {
-//   position: absolute;
-//   top: 40%;
-//   width: 100%;
-//   text-align: center;
-//   background-color: crimson;
-//   transform: skewY(-10deg);
-// }
-
-// .sold-out>span {
-//   color: #FFF;
-//   font-size: 45px;
-//   font: bold;
-// }
-
-
 .dish-info {
+  box-sizing: border-box;
   background-color: white;
   color: black;
   display: flex;
   justify-content: space-between;
-  padding: 1vh;
+  padding: 0 1vh 0;
+  margin-top: 1vh;
 }
 
 .dish-name {
@@ -163,6 +149,17 @@
   justify-content: space-between;
 }
 
+.heart-icon-align {
+  display: flex;
+  align-items: center;
+}
+
+.heart-count-dishes {
+  margin-left: 0.5vw;
+  padding-bottom: 0.7vh;
+  font-size: 2vh;
+
+}
 
 .heart-btn {
   display: flex;

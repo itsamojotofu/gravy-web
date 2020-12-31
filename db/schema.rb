@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_222_080_108) do
+ActiveRecord::Schema.define(version: 20_201_229_102_112) do
   create_table 'active_storage_attachments', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'record_type', null: false
@@ -63,6 +63,20 @@ ActiveRecord::Schema.define(version: 20_201_222_080_108) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['chef_id'], name: 'index_dishes_on_chef_id'
+  end
+
+  create_table 'favorite_dishes', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'dish_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+  end
+
+  create_table 'likes', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'dish_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
   create_table 'profiles', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|

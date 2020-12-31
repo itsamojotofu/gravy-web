@@ -1,6 +1,7 @@
 /* 商品の概要 */
 
 .dish-show {
+  box-sizing: border-box;
   background-color:#ffeb7a;
   width: 100vw;
   display: flex;
@@ -11,8 +12,8 @@
 
 .dish-box {
   background-color: #FFF;
-  width: 85vw;
-  min-width: 1200px;
+  width: 80vw;
+  min-width: 500px;
   margin: 8vh 5vw 2vh;
   padding: 5vh 8vw;
   display: flex;
@@ -97,9 +98,15 @@
   margin: 40px 0px;
 }
 
+.table_with_likes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .detail-table {
   margin-bottom: 30px;
-  width: 100%;
+  width: 70%;
 }
 
 .detail-dish {
@@ -111,103 +118,23 @@
 }
 
 .detail-value {
-  width: 80%;
+  width: 30%;
   padding: 20px;
   border: 1px solid #dedede;
   font-size: 14px;
 }
 
+
 .option {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
+  width: 150px;
+  margin: 0 auto;
 }
 
-.favorite-btn {
-  border-radius: 40px;
-  width: 15vw;
-  min-width: 200px;
-  color: rgb(249, 75, 0);
-  border: 2px solid #ffb340;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 20px;
+#likes-num{
+  font-size: 1.2em;
 }
-
-.favorite-star-icon {
-  margin-right: 5px;
-}
-
-.report-btn {
-  border-radius: 40px;
-  width: 15vw;
-  min-width: 200px;
-
-  padding: 1vh 0;
-  color: black;
-  border: 2px solid #2d2d2d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.report-flag-icon {
-  margin-right: 5px;
-}
-
 
 /* /商品の概要 */
-
-.comment-box {
-  width: 40vw;
-  background-color: #fff;
-  margin: 5vh 0;
-  text-align: center;
-}
-
-.comment-text {
-  width: 100%;
-  height: 100px;
-  padding: 10px;
-  border: solid 2px #dedede;
-  resize: none;
-}
-
-.comment-warn {
-  padding: 10px;
-  font-size: 14px;
-  margin: 10px 0px;
-  text-align: left;
-}
-
-.comment-btn {
-  line-height: 48px;
-  background-color: #3CCACE;
-  border: 1px solid #3CCACE;
-  color: #fff;
-  width: 50%;
-  min-width: 150px;
-  font-size: 18px;
-  border-radius: 100px;
-  margin-bottom: 2vh;
-}
-
-.comment-flag {
-  display: flex;
-  justify-content: center;
-}
-
-.comment-flag-icon {
-  margin: 10px 5px 0 0;
-}
-
-.links {
-  display: flex;
-  justify-content: space-between;
-  width: 50vw;
-
-}
 
 .change-dish-btn {
   font-size: 30px;
