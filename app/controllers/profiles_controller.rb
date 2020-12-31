@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[edit update destroy]
   before_action :move_to_index, only: %i[edit destroy update]
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @profile.update(profile_params)

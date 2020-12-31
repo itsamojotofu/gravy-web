@@ -6,6 +6,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def liked_by?(dish_id)
+    likes.where(dish_id: dish_id).exists?
+  end
+
   with_options presence: true do
     validates :nickname
     validates :zip_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'needs to be filled in like 000-0000' }
@@ -20,4 +24,6 @@ class User < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+
+  has_many :likes
 end

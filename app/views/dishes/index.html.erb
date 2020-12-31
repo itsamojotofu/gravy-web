@@ -34,6 +34,7 @@
     <div class='dish-lists'>
     <% if @dishes.present? %>
       <% @dishes.each do |dish| %>
+        
       <div class='list'>
         <%= link_to dish_path(dish.id) do %>
         <div class='dish-img-content'>
@@ -48,10 +49,9 @@
               <span><%= dish.price %>円 / <%= dish.chef.name %>シェフ</span>
             </div>
           </div>
-          <div class='heart-btn'>
-          <%= image_tag "heart.png", :size =>'20x20', class:"heart-icon" %>
-          <span class='heart-count'>0</span>
-        </div>
+          <div id="dish_<%= dish.id %>">
+            <%= render 'dish', dish: dish %>
+          </div>
         </div>
         <% end %>
       </div>
