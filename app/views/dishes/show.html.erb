@@ -41,34 +41,38 @@
           <% end %>
         <% end %>
       </div>
-      
     </div>
-
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-dish">調理者</th>
-          <td class="detail-value"><%= @dish.chef.name %>シェフ</td>
-        </tr>
-        <tr>
-          <th class="detail-dish">年代/性別</th>
-          <td class="detail-value"><%= @dish.chef.profile.age.name %> / <%= @dish.chef.profile.gender.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-dish">発送元の地域</th>
-          <td class="detail-value"><%= @dish.chef.prefecture.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-dish">発送時間の目安</th>
-          <%# フードデリバリーの平均配達時間:20分 %>
-          <td class="detail-value"><%= @dish.ready.name.to_i + 20 %>分</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="option">
-      <div class="heart-btn">
-        <%= image_tag "heart.png" ,class:"heart-icon" ,width:"20",height:"20"%>
-        <span>お気に入り数 12</span>
+    <div class="table_with_likes">
+      <table class="detail-table">
+        <tbody>
+          <tr>
+            <th class="detail-dish">調理者</th>
+            <td class="detail-value"><%= @dish.chef.name %>シェフ</td>
+          </tr>
+          <tr>
+            <th class="detail-dish">年代/性別</th>
+            <td class="detail-value"><%= @dish.chef.profile.age.name %> / <%= @dish.chef.profile.gender.name %></td>
+          </tr>
+          <tr>
+            <th class="detail-dish">発送元の地域</th>
+            <td class="detail-value"><%= @dish.chef.prefecture.name %></td>
+          </tr>
+          <tr>
+            <th class="detail-dish">発送時間の目安</th>
+            <%# フードデリバリーの平均配達時間:20分 %>
+            <td class="detail-value"><%= @dish.ready.name.to_i + 20 %>分</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="option">
+        <div>
+          <span id="likes-num">お気に入り数</span>
+        </div>
+        <div>
+          <div id="dish_<%= @dish.id %>">
+            <%= render 'dish', dish: @dish %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -76,4 +80,4 @@
 
 </div>
 
-<%= render "shared/footer" %>
+<%= render "shared/second-footer" %>

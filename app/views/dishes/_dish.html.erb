@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+  <% if current_user.liked_by?(dish.id) %>
+    <div class="heart-icon-align">
+      <%= link_to image_tag("heart_filled.png", size: '20x20'), destroy_like_path(dish), method: :DELETE, remote: true %>
+      <span class='heart-count-dishes'><%= dish.likes.count %></span>
+    </div>
+  <% else %>
+    <div class="heart-icon-align">
+      <%= link_to image_tag("heart.png", size: '20x20'), create_like_path(dish), method: :POST, remote: true %>
+      <span class='heart-count-dishes'><%= dish.likes.count %></span>
+    </div>
+  <% end %>
+<% else %>
+  <div class='heart-btn'>
+    <%= image_tag "heart.png", :size =>'20x20', class:"heart-icon" %>
+    <span class='heart-count'><%= dish.likes.count %></span>
+  </div>
+<% end %>
