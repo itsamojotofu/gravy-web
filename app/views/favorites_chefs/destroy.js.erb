@@ -1,0 +1,1 @@
+document.getElementById('chef_<%= @chef.id %>').innerHTML = '<%= j(render partial: 'dishes/chef', locals: { chef: @chef }) %>'

@@ -60,14 +60,14 @@
 .dish-contents {
   width: 100%;
   background-color: #f7e26c;
-  padding: 3vh 2vw 2vh;
+  padding: 2vh 3vw 2vh;
 }
 
 .recent-dishes {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 2vh 2vw 1vh;
+  padding: 1vh 2vw 1vh;
   border-bottom: 5px gold double;
   margin-bottom: 10px;
 }
@@ -131,9 +131,11 @@
   color: black;
   display: flex;
   justify-content: space-between;
-  padding: 0 1vh 0;
+  padding: 0 0.5vh 0;
   margin-top: 1vh;
 }
+
+
 
 .dish-name {
   width: 180px;
@@ -152,6 +154,7 @@
 .heart-icon-align {
   display: flex;
   align-items: center;
+  width: 40px;
 }
 
 .heart-count-dishes {

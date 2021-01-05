@@ -28,4 +28,8 @@ Rails.application.routes.draw do
 
   post 'like/:id' => 'likes#create', as: 'create_like'
   delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
+
+  post 'favorite_chef/:id' => 'favorites_chefs#create', as: 'create_favorite'
+  delete 'favorite_chef/:id' => 'favorites_chefs#destroy', as: 'destroy_favorite'
+
 end

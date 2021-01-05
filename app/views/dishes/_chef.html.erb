@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+  <% if current_user.favorited_by?(chef.id) %>
+    <div class="heart-icon-align">
+    <%= link_to image_tag("heart_filled.png", size: '20x20'), destroy_favorite_path(chef), method: :DELETE, remote: true %>
+    <span class='heart-count-dishes'><%= chef.favorite_chefs.count %></span>
+    </div>
+  <% else %>
+    <div class="heart-icon-align">
+      <%= link_to image_tag("heart.png", size: '20x20'), create_favorite_path(chef), method: :POST, remote: true %>
+      <span class='heart-count-dishes'><%= chef.favorite_chefs.count %></span>
+    </div>
+  <% end %>
+<% else %>
+  <div class='heart-btn'>
+    <%= image_tag "heart.png", :size =>'20x20', class:"heart-icon" %>
+    <span class='heart-count'><%= chef.favorite_chefs.count %></span>
+  </div>
+<% end %>
+

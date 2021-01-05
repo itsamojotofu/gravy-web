@@ -10,6 +10,10 @@ class User < ApplicationRecord
     likes.where(dish_id: dish_id).exists?
   end
 
+  def favorited_by?(chef_id)
+    favorite_chefs.where(chef_id: chef_id).exists?
+  end
+
   with_options presence: true do
     validates :nickname
     validates :zip_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'needs to be filled in like 000-0000' }
@@ -26,4 +30,5 @@ class User < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   has_many :likes
+  has_many :favorite_chefs
 end
