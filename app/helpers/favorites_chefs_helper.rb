@@ -1,0 +1,2 @@
+module FavoritesChefsHelper
+end

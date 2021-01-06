@@ -1,0 +1,23 @@
+<div class='list'>
+  <%= link_to chef_path(chef.id) do %>
+  <div class='dish-img-content'>
+    <% if chef.profile.image.attached? %>
+    <%= image_tag chef.profile.image, class: "dish-img" %>
+    <% end %>
+  </div>
+  <div class='dish-info'>
+    <div>
+      <h3 class='dish-name'>
+        <%= chef.name %>シェフ
+      </h3>
+      <div class='dish-price'>
+        <span><%= chef.profile.age.name %><%= chef.profile.gender.name %>/<%= chef.profile.genre.name %>が得意</span>
+      </div>
+    </div>
+    <div class='heart-btn'>
+    <%= image_tag "star_filled.png", :size =>'20x20', class:"heart-icon" %>
+    <span class='heart-count'><%= chef.favorite_chefs.count %></span>
+    </div>
+  </div>
+  <% end %>
+</div>

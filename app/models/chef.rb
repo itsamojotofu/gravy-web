@@ -23,4 +23,8 @@ class Chef < ApplicationRecord
 
   has_one :profile
   has_many :dishes
+  has_many :favorite_chefs
+  has_many :users, through: :favorite_chefs
+  has_many :likes, through: :dishes
+  
 end

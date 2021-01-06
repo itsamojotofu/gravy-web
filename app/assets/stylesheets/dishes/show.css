@@ -111,8 +111,8 @@
 
 .detail-dish {
   width: 20%;
-  background-color: #eee;
-  border: 1px solid #dedede;
+  background-color: #fff893;
+  border: 1px solid  #ffe54f;
   font-size: 14px;
   text-align: center;
 }
@@ -120,26 +120,18 @@
 .detail-value {
   width: 30%;
   padding: 20px;
-  border: 1px solid #dedede;
+  border: 1px solid #ffe54f;
   font-size: 14px;
 }
 
+#likes-num {
+  font-size: 1.8vh;
+  font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+}
 
 .option {
-  width: 150px;
+  width: 200px;
   margin: 0 auto;
-}
-
-#likes-num{
-  font-size: 1.2em;
-}
-
-/* /商品の概要 */
-
-.change-dish-btn {
-  font-size: 30px;
-  text-decoration: none;
-  color: #3CCACE;
 }
 
 .same-genre-dishes {

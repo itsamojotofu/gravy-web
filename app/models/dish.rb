@@ -4,6 +4,7 @@ class Dish < ApplicationRecord
   belongs_to :chef
   has_one_attached :image
   has_many :likes
+  has_many :users, through: :likes
 
   with_options presence: true do
     validates :image

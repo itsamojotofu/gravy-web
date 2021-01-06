@@ -46,7 +46,7 @@
               <%= dish.name %>
             </h3>
             <div class='dish-price'>
-              <span><%= dish.price %>円 / <%= dish.chef.name %>シェフ</span>
+              <span><%= dish.price %>円/<%= dish.chef.name %>シェフ</span>
             </div>
           </div>
           <div id="dish_<%= dish.id %>">
@@ -107,12 +107,11 @@
               <%= chef.name %>シェフ
             </h3>
             <div class='dish-price'>
-              <span><%= chef.profile.age.name %><%= chef.profile.gender.name %> / <%= chef.profile.genre.name %>が得意</span>
+              <span><%= chef.profile.age.name %><%= chef.profile.gender.name %>/<%= chef.profile.genre.name %>が得意</span>
             </div>
           </div>
-          <div class='heart-btn'>
-          <%= image_tag "heart.png", :size =>'20x20', class:"heart-icon" %>
-          <span class='heart-count'>0</span>
+          <div id="chef_<%= chef.id %>">
+          <%= render 'chef', chef: chef %>
           </div>
         </div>
         <% end %>
@@ -130,7 +129,7 @@
             <span>和食/男性</span>
           </div>
             <div class='heart-btn'>
-              <%= image_tag "heart.png", :size =>'20x20', class:"heart-icon" %>
+              <%= image_tag "star.png", :size =>'20x20', class:"heart-icon" %>
               <span class='heart-count'>0</span>
             </div>
         <% end %>
