@@ -1,0 +1,22 @@
+<%= render "shared/header" %>
+<% if user_signed_in? && current_user.id == @user.id %>
+  <div class="chef__inner">
+    <div class="chef__wrapper">
+      <h1>
+        <%= "ようこそ、#{@user.nickname}さん"%>
+      </h1>
+      <h2 class="page-heading">
+        <%= "ライクしたメニュー"%>
+      </h2>
+      <div class="dish-lists">
+      <%= render partial: 'dish', collection: @dishes %>
+      </div>
+      <h2 class="page-heading">
+        <%= "お気に入りのシェフ"%>
+      </h2>
+      <div class="dish-lists">
+      <%= render partial: 'chef', collection: @chefs %>
+      </div>
+    </div>
+  </div>
+<% end %>

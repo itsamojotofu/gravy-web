@@ -6,13 +6,29 @@
     <h2 class="page-heading">
       <%= "#{@chef.name}シェフのプロフィール"%>
       <% if chef_signed_in? && current_chef.id == @chef.id %>
-          <%= link_to 'プロフィールの更新', edit_profile_path(@chef.profile.id), method: :get, class: "post-btn" %> 
-        <% end %>
+        <%= link_to 'プロフィールの更新', edit_profile_path(@chef.profile.id), method: :get, class: "post-btn" %> 
+      <% end %>
     </h2>
     <div class="chef-show-info">
       <div class='dish-img-content'>
         <%= image_tag @chef.profile.image, class:"dish-box-img" %>
       </div>
+
+
+      <div>
+        <span id="likes-num">お気に入り数</span>
+        <div id="chef_<%= @chef.id %>">
+          <%= render 'chef', chef: @chef %>
+        </div>
+        <div>
+          <span id="likes-num">総ライク数</span>
+          <div id="total_likes_count">
+          <%= image_tag "heart_filled.png", :size =>'20x20', class:"heart-icon" %>
+          <span class='heart-count'><%= @chef.likes.count %></span>
+          </div>
+        </div>
+      </div>
+
       <table class="chef-show-table">
         <tbody>
           <tr>

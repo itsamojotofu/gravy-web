@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :dishes
 
   resources :chefs, only: :show
+  resources :users, only: :show
 
   resources :profiles, only: %i[edit update]
 

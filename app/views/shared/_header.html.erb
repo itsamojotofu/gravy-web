@@ -4,7 +4,7 @@
     <ul>
       <% if user_signed_in? %>
         <%= "ようこそ、" + User.find(current_user.id).nickname + "さん" %>
-        <li><%= link_to "料理を探す", "#", class: "post-btn" %></li>
+        <li><%= link_to "マイページ", "/users/#{current_user.id}", class: "post-btn" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "post-btn" %></li>
       <% elsif chef_signed_in? %>
         <%= "ようこそ、" + Chef.find(current_chef.id).name + "さん" %>
@@ -32,7 +32,7 @@
 
       <ul class="nav-user">
         <% if user_signed_in? %>
-          <li><%= link_to "料理を探す", "#", class: "post-btn" %></li>
+          <li><%= link_to "マイページ", "/users/#{current_user.id}", class: "post-btn" %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "post-btn" %></li>
         <% elsif chef_signed_in? %>
           <li><%= link_to "マイページ", "/chefs/#{current_chef.id}", class: "post-btn" %></li>

@@ -5,6 +5,7 @@
 
 .chef__wrapper{
   padding-top: 90px;
+  padding-bottom: 30px;
 }
 
 .chef__wrapper h2{
@@ -43,4 +44,8 @@
   border-collapse: collapse;
   width: 70%;
   padding: 16px 8px;
+}
+
+#total_likes_count{
+  padding: 20px 10px 10px 0;
 }

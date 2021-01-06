@@ -30,5 +30,7 @@ class User < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   has_many :likes
+  has_many :dishes, through: :likes
   has_many :favorite_chefs
+  has_many :chefs, through: :favorite_chefs
 end
