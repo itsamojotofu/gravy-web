@@ -1,3 +1,7 @@
+#gravy{
+  min-width:1000px;
+  font: black;
+}
 
 .gravy-home {
 
@@ -49,11 +53,77 @@
   font-size: 3vh;
 }
 
-.mobile-app-intro {
-  height: 100vh;
+#mobile-app-intro {
+  height: 30vh;
   width: 100%;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px
+
 }
+
+.gravy-native-logo {
+  width: 120px;
+  height: 120px;
+  border: 0.5px gray solid;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px;
+  margin-left: 2vw;
+}
+
+#native-app-catchcopy {
+  margin-left: 30px;
+  font-size: 2em;
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+.logo-size-trimming {
+  width: 170px;
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+#service-introduction {
+  height: 60vh;
+  width: 100%;
+  margin-bottom: 5vh;
+  padding: 40px;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+}
+
+.service-introbox{
+  text-align: center;
+  font-size: 1.5em;
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+.gravy-intro-image {
+  width: 500px;
+  height: 400px;
+}
+
+.intro-link {
+  font-size: 2vh;
+  margin: 1vh 0;
+  color: #222222;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.intro-link:hover {
+  text-decoration: none;
+}
+
+/* イントロダクション*/
+
+
+
+/* //イントロダクション */
+
 
 /* 料理一覧 (シェフ一覧と共通)*/
 
@@ -73,6 +143,7 @@
 }
 
 .dish-contents .title {
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   font-size: 3.5vh;
   line-height: 1.2;
   color: #222222;
@@ -181,8 +252,7 @@
   font-size: 2vh;
 }
 
-/* //商品一覧 */
-
+/* //料理一覧 */
 
 #scrollArea {
   width: 200px;

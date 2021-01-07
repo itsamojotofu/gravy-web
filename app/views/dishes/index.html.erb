@@ -14,10 +14,42 @@
       <source src="/assets/family_cooking.mp4" type="video/mp4">
     </video>
   </div>
+</div>
 
-  <div class="mobile-app-intro">
-  
-  </div> 
+<div id="mobile-app-intro">
+  <div>
+  <%= image_tag "gravy_native_logo.png", class:"gravy-native-logo" %>
+  </div>
+  <div id="native-app-catchcopy">
+  スマホでもグレイビー。最高のシェフがここに。
+  </div>
+  <div>
+  <%= link_to image_tag("google-play-badge.png"), "https://play.google.com/store?utm_source=apac_med&utm_medium=hasem&utm_content=Jan0421&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-jp-1003227-med-hasem-py-Evergreen-Jan0421-Text_Search_BKWS-BKWS|ONSEM_kwid_43700059014001039_creativeid_481987982099_device_c&gclid=Cj0KCQiA3NX_BRDQARIsALA3fILEit1wU5d-n3ID3c_suAF2XsX7p1CfWlGGWDl3_9KNReqURy9SsJMaAi0EEALw_wcB"%>
+  </div>
+  <div class="logo-size-trimming">
+  <%= link_to image_tag("app-store-badge.png"), "https://www.apple.com/app-store/"%>
+  </div>
+</div>
+
+<div id="service-introduction">
+  <div class="service-introbox">
+    <h2>ネットでカンタン注文</h2>
+    <%= image_tag "order-from-home.png", class:"gravy-intro-image" %>
+    <h2>今すぐ最高の一品をお届けします。</h2>
+    <%= link_to 'サインアップする', new_user_registration_path, class: "intro-link" %>
+  </div>
+  <div class="service-introbox">
+    <h2>バラエティに富んだ料理たち</h2>
+    <%= image_tag "a-variety-of-dishes.png", class:"gravy-intro-image" %>
+    <h2>食べたい料理はありませんか？</h2>
+    <%= link_to 'シェフのメニューを覗いてみる', new_user_registration_path, class: "intro-link" %>
+  </div>
+  <div class="service-introbox">
+    <h2>もうお店は必要ありません</h2>
+    <%= image_tag "no-shop-needed.png", class:"gravy-intro-image" %>
+    <h2>自宅のキッチンから料理をお客様に</h2>
+    <%= link_to 'シェフ用アカウントを作成する', new_user_registration_path, class: "intro-link" %>
+  </div>
 </div>
 
 <%# 料理一覧 %>
