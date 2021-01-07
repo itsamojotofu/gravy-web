@@ -11,9 +11,11 @@
     </div>
   <% end %>
 <% else %>
-  <div class='heart-btn'>
-    <%= image_tag "star.png", :size =>'20x20', class:"heart-icon" %>
-    <span class='heart-count'><%= @chef.favorite_chefs.count %></span>
+  <div id="total_likes_count">
+    <div class='heart-btn'>
+      <%= image_tag "star.png", :size =>'20x20', class:"heart-icon" %>
+      <span class='heart-count'><%= @chef.favorite_chefs.count %></span>
+    </div>
   </div>
 <% end %>
 
