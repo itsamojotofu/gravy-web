@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_05_034017) do
+ActiveRecord::Schema.define(version: 2021_01_07_075606) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -91,6 +91,15 @@ ActiveRecord::Schema.define(version: 2021_01_05_034017) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "dish_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_orders_on_dish_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "about"
     t.time "business_hour_begin", null: false
@@ -125,5 +134,7 @@ ActiveRecord::Schema.define(version: 2021_01_05_034017) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "dishes", "chefs"
+  add_foreign_key "orders", "dishes"
+  add_foreign_key "orders", "users"
   add_foreign_key "profiles", "chefs"
 end

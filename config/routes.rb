@@ -20,7 +20,9 @@ Rails.application.routes.draw do
 
   root to: 'dishes#index'
 
-  resources :dishes
+  resources :dishes do
+    resources :orders, only: [:index, :create]
+  end
 
   resources :chefs, only: :show
   resources :users, only: :show

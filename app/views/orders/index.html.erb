@@ -1,0 +1,130 @@
+<%= render "shared/second-header"%>
+
+<div class='transaction-contents'>
+    <div class='buy-dish-title'>
+    <h1 class='transaction-title-text'>
+      注文内容の確認
+    </h1>
+    </div>
+    <%# 購入内容の表示 %>
+    <div class='buy-dish-info'>
+      <%= image_tag @dish.image, class: 'buy-dish-img' %>
+      <div class='buy-dish-right-content'>
+        <h2 class='buy-dish-text'>
+          <%= @dish.name %>
+        </h2>
+        <div class='buy-dish-price'>
+          <p class='dish-price-text'>¥<%= @dish.price %></p>
+          <p class='dish-price-sub-text'><%= @dish.name %></p>
+        </div>
+      </div>
+    </div>
+    <%# /購入内容の表示 %>
+
+    <%= form_with model: @order, url: dish_orders_path(@dish.id), id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <%# お届け先の表示 %>
+    <div class='shipping-address-form'>
+      <div class="buy-dish-title">
+        <h1 class='transaction-title-text'>
+          お届け先の確認
+        </h1>
+      </div>
+      <div class='shipping-address-info'>
+        <table class="buy-dish-table">
+          <tbody>
+            <tr>
+              <th class="table__col1">郵便番号</th>
+              <td class="table__col2"><%= @user.zip_code %></td>
+            </tr>
+            <tr>
+              <th class="table__col1">都道府県</th>
+              <td class="table__col2"><%= @user.prefecture.name %></td>
+            </tr>
+            <tr>
+              <th class="table__col1">市町村</th>
+              <td class="table__col2"><%= @user.district %></td>
+            </tr>
+            <tr>
+              <th class="table__col1">番地(建物名)</th>
+              <td class="table__col2"><%= @user.street %></td>
+            </tr>
+          </tbody>
+        </div>
+        <table class="buy-dish-table">
+          <tbody>
+            <tr>
+              <th class="table__col1">電話番号</th>
+              <td class="table__col2"><%= @chef.phone_number %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="buy-dish-subtitle">
+        <h1 class='transaction-subtitle-text'>
+          お届け先にお間違えはありませんか？
+        </h1>
+      </div>
+    </div>
+    <%# /お届け先の表示 %>
+ 
+    <%# カード情報の入力 %>
+    <div class='buy-dish-title'>
+      <h1 class='transaction-title-text'>
+        クレジットカード情報入力
+      </h1>
+    </div>
+    <div class='credit-card-form'>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">カード情報</label>
+          <span class="required">Required</span>
+        </div>
+        <%= f.text_field :number, class:"input-card-number", id:"card-number", placeholder:" カード番号(半角英数字)", maxlength:"16" %>
+        
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">有効期限</label>
+          <span class="required">Required</span>
+        </div>
+        <div class='input-expiration-date-wrap'>
+          <%= f.text_area :exp_month, class:"input-expiration-date", id:"card-exp-month", placeholder:"例)4" %>
+          <p>月</p>
+          <%= f.text_area :exp_year, class:"input-expiration-date", id:"card-exp-year", placeholder:"例)25" %>
+          <p>年</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">セキュリティコード</label>
+          <span class="required">Required</span>
+        </div>
+        <%= f.text_field :cvc,class:"input-security-code", id:"card-cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
+      </div>
+    </div>
+    <%# /カード情報の入力 %>
+
+    <%# 支払額の表示 %>
+    <div class='dish-payment'>
+      <h1 class='dish-payment-title'>
+        お支払い金額
+      </h1>
+      <p class='dish-payment-price'>
+        ¥<%= @dish.price %>
+      </p>
+    </div>
+    <%# /支払額の表示 %>
+
+    <div class='buy-btn'>
+      <%= f.submit "注文を確定" ,class:"buy-yellow-btn" %>
+    </div>
+    <div class='buy-btn'>
+    <%=link_to 'マイページ', "/users/#{current_user.id}", class:"buy-back-btn" %>
+    </div>
+    <% end %>
+</div>
+
+<%= render "shared/second-footer"%>
