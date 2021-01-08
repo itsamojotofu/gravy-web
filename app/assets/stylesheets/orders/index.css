@@ -1,0 +1,271 @@
+.transaction-contents {
+  width: 100vw;
+  background-color: #ffeb7a;
+  padding: 5vh 20vw;
+  display: block;
+  margin: auto;
+}
+
+.transaction-title-text {
+  text-align: center;
+  border-bottom: 2px solid #f5f5f5;
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  text-shadow: 0px 0px 0px;
+  font-size: 22px;
+}
+
+.transaction-subtitle-text {
+  text-align: center;
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  text-shadow: 0px 0px 0px;
+  font-size: 20px;
+}
+
+/* 購入内容の表示 */
+.buy-dish-title {
+  background-color: #FFF;
+  width: 60vw;
+  min-width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.buy-dish-subtitle {
+  background-color: #FFF;
+  width: 60vw;
+  min-width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -30px;
+}
+
+.buy-dish-info {
+  background-color: #FFF;
+  width: 60vw;
+  min-width: 450px;
+  height: 150px;
+  border-bottom: 2px solid #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buy-dish-img {
+  margin-right: 20px;
+  height: 130px;
+  width: 250px;
+  object-fit: contain;
+}
+
+.buy-dish-right-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.buy-dish-text {
+  font-size: 20px;
+}
+
+.buy-dish-price {
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.dish-price-text {
+  font-size: 15px;
+}
+
+.dish-price-sub-text {
+  font-size: 12px;
+}
+
+/* /購入内容の表示 */
+
+/* 支払額の表示 */
+.dish-payment {
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  background-color: #FFF;
+  width: 60vw;
+  min-width: 450px;
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid #f5f5f5;
+  font-weight: bold;
+}
+
+.dish-payment-title {
+  font-size: 22px;
+}
+
+.dish-payment-price {
+  font-size: 22px;
+}
+
+/* /支払額の表示 */
+
+/* カード情報の入力 */
+.credit-card-form {
+  background-color: #FFF;
+  width: 60vw;
+  min-width: 450px;
+  border-bottom: 2px solid #f5f5f5;
+  padding-bottom: 30px;
+}
+
+.form-group {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.form-group:first-child {
+  padding: 0;
+}
+
+
+.info-input-headline {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.available-card {
+  display: flex;
+  height: 35px;
+  margin: 10px;
+}
+
+.card-logo {
+  width: 40px;
+  margin: 5px 5px;
+}
+
+.input-card-number{
+  width: 80%;
+  margin-top: 5px;
+  height: 35px;
+  border-radius: 4px;
+  border: 1px solid gray;
+  background: #fff;
+  font-size: 14px;
+  resize: none;
+  line-height: 45px;
+  text-align: center;
+}
+
+.input-security-code{
+  width: 55%;
+  margin-top: 5px;
+  height: 35px;
+  border-radius: 4px;
+  border: 1px solid gray;
+  background: #fff;
+  font-size: 14px;
+  resize: none;
+  line-height: 45px;
+  text-align: center;
+}
+
+.input-expiration-date-wrap {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  line-height: 55px;
+}
+
+.input-expiration-date {
+  width: 20%;
+  margin-top: 5px;
+  height: 35px;
+  border-radius: 4px;
+  border: 1px solid gray;
+  background: #fff;
+  font-size: 14px;
+  resize: none;
+  line-height: 30px;
+  text-align: center;
+  margin: 5px;
+}
+
+/* /カード情報の入力 */
+
+/* 配送先の表示 */
+
+.shipping-address-form {
+  background-color: #FFF;
+  width: 60vw;
+  min-width: 450px;
+}
+
+.shipping-address-info {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+
+.buy-dish-table{
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  width: 60%;
+  margin: 30px auto;
+  
+}
+.buy-dish-table .table__col1{
+  text-align: center;
+  font-weight: 600;
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  background-color: white;
+  border-collapse: collapse;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  width: 20%;
+  padding: 16px;
+}
+
+.buy-dish-table .table__col2{
+  text-align: left;
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-collapse: collapse;
+  width: 40%;
+  padding: 16px;
+}
+
+/* / 配送先の表示 */
+
+.buy-btn {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.buy-yellow-btn {
+  width: 50%;
+  background: #ffe54f;
+  border: 1px solid black;
+  color: black;
+  line-height: 48px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.buy-back-btn {
+  background: #222222;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  color: white;
+  padding: 2vh 5vw;
+  text-decoration: none;
+}

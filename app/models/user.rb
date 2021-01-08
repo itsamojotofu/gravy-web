@@ -33,4 +33,5 @@ class User < ApplicationRecord
   has_many :dishes, through: :likes
   has_many :favorite_chefs
   has_many :chefs, through: :favorite_chefs
+  has_many :orders
 end

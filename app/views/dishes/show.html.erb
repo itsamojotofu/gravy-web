@@ -33,9 +33,7 @@
 
         <% if user_signed_in? %>
           <% if current_user.prefecture.name == @dish.chef.prefecture.name %>
-          <%# 商品が売れていない場合はこちらを表示しましょう %>
-          <%# <%= link_to '購入画面に進む', item_records_path(@item.id),class:"item-red-btn"%> 購入に進む
-          <%# //商品が売れていない場合はこちらを表示しましょう %>
+            <%= link_to '購入画面に進む', dish_orders_path(@dish.id),class:"dish-red-btn"%>
           <% else %>
             ※配達対象地域ではありません※
           <% end %>
