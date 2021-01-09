@@ -11,14 +11,24 @@
 }
 
 .dish-box {
+  position: relative;
   background-color: #FFF;
   width: 80vw;
   min-width: 500px;
   margin: 8vh 5vw 2vh;
-  padding: 5vh 8vw;
+  padding: 5vh 6vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#dish-show-like {
+  position: absolute;
+  top: 4%;
+  left: 8%;
+  margin-right: 50px;
+  height: 1px;
+  z-index: 9999;  
 }
 
 .dish-show-info {
@@ -34,6 +44,15 @@
   width: 25vw;
   min-height: 400px;
   min-width: 400px;
+  background-color: white;
+  object-fit: contain;
+  border: 1px gray solid;
+}
+
+.chef-box-img {
+  margin-right: 30px;
+  height: 255px;
+  width: 255px;
   background-color: white;
   object-fit: contain;
   border: 1px gray solid;
@@ -106,22 +125,23 @@
 
 .detail-table {
   margin-bottom: 30px;
-  width: 70%;
+  width: 80%;
+  height: 20vh;
 }
 
 .detail-dish {
-  width: 20%;
+  width: 30%;
   background-color: #fff893;
   border: 1px solid  #ffe54f;
-  font-size: 14px;
+  font-size: 15px;
   text-align: center;
 }
 
 .detail-value {
-  width: 30%;
+  width: 50%;
   padding: 20px;
   border: 1px solid #ffe54f;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 #likes-num {
@@ -145,4 +165,8 @@
 
 .same-genre-dishes:hover {
   text-decoration: underline;
+}
+
+#display-inline {
+  display: inline;
 }

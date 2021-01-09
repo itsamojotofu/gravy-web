@@ -4,6 +4,11 @@
 <%# 商品の概要 %>
 <div class="dish-show">
   <div class="dish-box">
+    <div id="dish-show-like">
+      <span id="dish_<%= @dish.id %>">
+        <%= render 'dish', dish: @dish %>
+      </span>
+    </div>
     <div class="dish-show-info">
       <div class='dish-img-content'>
         <%= image_tag @dish.image,class:"dish-box-img" %>
@@ -41,6 +46,9 @@
       </div>
     </div>
     <div class="table_with_likes">
+      <div class='dish-img-content'>
+        <%= image_tag @dish.chef.profile.image,class:"chef-box-img" %>
+      </div>
       <table class="detail-table">
         <tbody>
           <tr>
@@ -62,16 +70,6 @@
           </tr>
         </tbody>
       </table>
-      <div class="option">
-        <div>
-          <span id="likes-num">ライク数</span>
-        </div>
-        <div>
-          <div id="dish_<%= @dish.id %>">
-            <%= render 'dish', dish: @dish %>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <%# /商品の概要 %>
@@ -79,3 +77,13 @@
 </div>
 
 <%= render "shared/second-footer" %>
+<div class="option">
+        <div>
+          <span id="likes-num">ライク数</span>
+        </div>
+        <div>
+          <span id="dish_<%= @dish.id %>">
+            <%= render 'dish', dish: @dish %>
+          </span>
+        </div>
+      </div>
