@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_07_075606) do
+ActiveRecord::Schema.define(version: 2021_01_11_045126) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(version: 2021_01_07_075606) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "carts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "chefs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,6 +96,16 @@ ActiveRecord::Schema.define(version: 2021_01_07_075606) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "line_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "dish_id"
+    t.bigint "cart_id"
+    t.integer "quantity", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["dish_id"], name: "index_line_items_on_dish_id"
+  end
+
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "dish_id"
@@ -134,6 +149,8 @@ ActiveRecord::Schema.define(version: 2021_01_07_075606) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "dishes", "chefs"
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "dishes"
   add_foreign_key "orders", "dishes"
   add_foreign_key "orders", "users"
   add_foreign_key "profiles", "chefs"

@@ -1,5 +1,7 @@
 ![Gravy Logo](https://user-images.githubusercontent.com/74521093/101759428-ef9b7d80-3b1c-11eb-8a33-33b97be09ede.png)
 
+## :wrench: Tools
+
 <br>
 <p align="center">
   <a href="https://guides.rubyonrails.org/"><img width="180" alt="68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f3534333133332f37613663323763642d303963622d623965372d376231622d3163623536646662656530632e706e67" src="https://user-images.githubusercontent.com/60377349/85693307-1a317f80-b711-11ea-9ae6-b1fa9b3e601d.png"></a>
@@ -13,8 +15,8 @@
 ## 🌐 App URL
 https://gravy-32310.herokuapp.com/
 
-## 📝 Description
-香水提案アプリです。  
+## 📝 About
+C2Cのフードデリバリーを実現するためのプラットフォームです。
 好みの香りや使用場面、持たせたい印象をリストから選択し、それに合わせておすすめの香水を提案します。  
 また、選択した香水を購入することができます。  
 ※実取引は不可能です
@@ -29,7 +31,7 @@ https://gravy-32310.herokuapp.com/
 時折、どの香水がいいか分からない、おすすめの香水を教えて欲しい、と思うことありませんか？  
 このサイトはそういった悩みの手助けとなるべく開設しました。  
 
-## 💫 What was implemented
+## 💫 Functions
 - haml/SASS記法と、命名規則BEMを使ったマークアップ
 - deviseを用いたユーザー新規登録とログイン
 - cancancanを用いた管理者権限の付与
@@ -39,27 +41,27 @@ https://gravy-32310.herokuapp.com/
 - 非同期通信による商品へのコメント機能
 - gretelを用いたパンくずリスト
 - PAY.JPを用いたクレジットカードの登録及び購入処理
-- RSpecを使った単体テスト
+- RSpecを使ったモデルの単体テストコード
 - capistranoによるAWS EC2への自動デプロイ
 
-## 🙌 Usage
+## 🙌 Check It on Local
 ```
-$ git clone https://github.com/oznekpark/smellstokyo.git
-$ cd smellstokyo
+$ git clone 
+$ cd gravy-32310
 $ bundle install
 ```
 
-商品一覧、商品詳細、商品検索、カート機能についてはログインなしで使用可能です。  
-商品の購入には、新規登録/ログイン、マイページ(my account)でのクレジットカードの登録及び送付先住所の登録が必要です。  
+商品一覧、商品詳細、商品検索についてはログインなしで使用可能です。  
+商品の購入/カート機能には、新規登録/ログイン、マイページ(my account)でのクレジットカードの登録及び送付先住所の登録が必要です。  
 ログインにあたっては、以下の登録済みアカウントをご利用いただけます。  
-- email           :test@gmail.com
-- password        :test11
+- email           :
+- password        :
 
 また、クレジットカードについては、以下のテストカードをご利用ください。  
 ※ご自身のカードは使用しないで下さい。  
 
-- number          : 5555555555554444
-- expiration date : 12/20
+- number          : 4242424242424242
+- expiration date : 01/23
 - cvc             : 123
 
 ## 💡 Supplementary information
@@ -72,50 +74,41 @@ $ bundle install
 ## 📙 Features
 ## Home
 ![18 176 232 167_ (1)](https://user-images.githubusercontent.com/60377349/85860335-98695100-b7f9-11ea-8a05-2d0e9c860f8f.png)
-## Index of products
-![18 176 232 167_](https://user-images.githubusercontent.com/60377349/85860391-b33bc580-b7f9-11ea-821d-5271e17cf6fe.png)
-## Detail of a product
-![18 176 232 167_products_2](https://user-images.githubusercontent.com/60377349/85860429-c189e180-b7f9-11ea-9a5e-eb17945ea8f9.png)
+## Index of dishes
+
+## Detail of a dish
+
 ## Cart
-![18 176 232 167_carts_9151](https://user-images.githubusercontent.com/60377349/85860538-ec743580-b7f9-11ea-8ea1-91149f73ea12.png)
-## Log in
-![18 176 232 167_ (2)](https://user-images.githubusercontent.com/60377349/85860604-044bb980-b7fa-11ea-9f9e-a69db925fd2d.png)
-## Sign up
-![18 176 232 167_ (3)](https://user-images.githubusercontent.com/60377349/85860617-09a90400-b7fa-11ea-9905-bc50c4c0aad0.png)
+
+## Log in (User)
+
+## Sign up (User)
+
+## Log in (Chef)
+
+## Sign up (Chef)
+
+
 ## My Account
-![18 176 232 167_cards_3](https://user-images.githubusercontent.com/60377349/85860669-1cbbd400-b7fa-11ea-8ee8-8713f85ca068.png)
+
 ## Favarite
-![18 176 232 167_products_2 (1)](https://user-images.githubusercontent.com/60377349/85860713-2cd3b380-b7fa-11ea-92d2-87d59efd5583.png)
+
 ## Registration of an address
-![18 176 232 167_addresses_8_edit](https://user-images.githubusercontent.com/60377349/85860783-4412a100-b7fa-11ea-8916-e255dcadecaf.png)
+
 ## Registration of a credit card
-![18 176 232 167_users_3](https://user-images.githubusercontent.com/60377349/85860804-4a088200-b7fa-11ea-986a-861a3fb81bd1.png)
+
 ## Confirmation before payment
-![18 176 232 167_carts_9151 (1)](https://user-images.githubusercontent.com/60377349/85860851-5ab8f800-b7fa-11ea-8ff5-ffbe99a40ffc.png)
+
 ## Completion of Purchasing
-![18 176 232 167_orders_confirm](https://user-images.githubusercontent.com/60377349/85860859-60164280-b7fa-11ea-9060-0f9157f2b5fe.png)
+
 ## Purchase history
-![18 176 232 167_ (4)](https://user-images.githubusercontent.com/60377349/85860911-73c1a900-b7fa-11ea-819d-6a7a0b025560.png)
-## Detailos of purchase history
-![18 176 232 167_ (5)](https://user-images.githubusercontent.com/60377349/85860927-791ef380-b7fa-11ea-952d-c0b02253ca42.png)
-## Index page for admin (admin user)
-![18 176 232 167_admin](https://user-images.githubusercontent.com/60377349/85860956-863be280-b7fa-11ea-876e-227979f63b61.png)
-## Registration of products (admin user)
-![18 176 232 167_admin (1)](https://user-images.githubusercontent.com/60377349/85860972-8cca5a00-b7fa-11ea-8be1-43c7df8ea8fd.png)
 
+## Details of purchase history
 
+## Index page for chef
 
-# Gravy
+## Registration of dishes (Chef)
 
-# About
-
-## URL
-
-# Accounts for Test
-
-# Usage
-
-# Major Functions
 
 # Database
 
@@ -206,5 +199,4 @@ $ bundle install
 - has_many :dish_tag_relations
 - has_many :dishes, through: :dish_tag_relations
 
-# Check It on Local
 
