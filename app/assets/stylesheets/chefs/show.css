@@ -49,3 +49,8 @@
 #total_likes_count{
   padding: 20px 10px 10px 0;
 }
+
+.flash {
+  text-align: center;
+  background-color: #fff893;
+}

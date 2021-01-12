@@ -1,6 +1,5 @@
 <%= render "shared/header" %>
 
-
 <%# 商品の概要 %>
 <div class="dish-show">
   <div class="dish-box">
@@ -38,10 +37,23 @@
 
         <% if user_signed_in? %>
           <% if current_user.prefecture.name == @dish.chef.prefecture.name %>
-            <%= link_to '購入画面に進む', dish_orders_path(@dish.id),class:"dish-red-btn"%>
+            <%= form_with url: add_item_carts_path, local: true do |f| %>
+              <%= f.label :quantity, "数量" %>
+              <%= f.text_field :quantity, placeholder: :選択していください, class: :form__title %>
+              <%= f.hidden_field :dish_id, :value => @dish.id %>
+              <%= f.hidden_field :cart_id, :value => @cart.id %>
+              <%= f.submit 'カゴに追加', class: :form__btn %>
+              <% if flash[:notice] %>
+                <div class="flash-add-cart">
+                  <%= flash[:notice] %>
+                </div>
+              <% end %>
+            <% end %>
           <% else %>
-            ※配達対象地域ではありません※
+            <h2>※配達対象地域ではありません※<h2>
           <% end %>
+        <% else %>
+          <h2>※注文をするにはログインが必要です※</h2>
         <% end %>
       </div>
     </div>
@@ -65,7 +77,7 @@
           </tr>
           <tr>
             <th class="detail-dish">発送時間の目安</th>
-            <%# フードデリバリーの平均配達時間:20分 %>
+            <%# フードデリバリーの平均配達時間:20分と仮定 %>
             <td class="detail-value"><%= @dish.ready.name.to_i + 20 %>分</td>
           </tr>
         </tbody>
@@ -77,13 +89,3 @@
 </div>
 
 <%= render "shared/second-footer" %>
-<div class="option">
-        <div>
-          <span id="likes-num">ライク数</span>
-        </div>
-        <div>
-          <span id="dish_<%= @dish.id %>">
-            <%= render 'dish', dish: @dish %>
-          </span>
-        </div>
-      </div>

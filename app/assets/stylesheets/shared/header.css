@@ -43,6 +43,15 @@ header {
   margin-top: 25px;
 }
 
+.cart-btn {
+  height: 30px;
+  width: 30px;
+  margin: -20px 20px 0 5px;
+}
+
+.cart-btn:hover {
+  opacity: 0.7;
+}
 
 .post-btn{
   display: inline-block;
@@ -61,6 +70,17 @@ header {
 .post-btn:hover {
   background: #ffe54f;
 }
+
+.choice-btn {
+  display: inline-block;
+  padding: 0.3em 1.5em;
+  font-size: 0.8em;
+  color: black;
+  user-select: none;
+  transition: 0.4s ease;
+  margin-right: 1em;
+}
+
 
 #nav{
   position: absolute;
@@ -147,3 +167,4 @@ header {
     font-size: 14px;
   }
 }
+

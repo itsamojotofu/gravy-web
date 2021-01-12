@@ -1,5 +1,11 @@
 <%= render "shared/second-header"%>
 
+<% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
 <div class="signup-background">
   <div class="signup-wrap">

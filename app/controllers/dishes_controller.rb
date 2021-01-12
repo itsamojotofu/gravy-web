@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DishesController < ApplicationController
+  before_action :set_cart
   before_action :authenticate_chef!, except: %i[index show]
   before_action :set_dish, only: %i[show edit update destroy]
   before_action :move_to_index, only: %i[edit destroy update]
@@ -49,6 +50,10 @@ class DishesController < ApplicationController
 
   def set_dish
     @dish = Dish.find(params[:id])
+  end
+
+  def set_cart
+    @cart = current_cart
   end
 
   def move_to_index

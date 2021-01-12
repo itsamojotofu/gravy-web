@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class LikesController < ApplicationController
+  before_action :set_cart
   before_action :dish_params
 
   def create
@@ -15,5 +16,9 @@ class LikesController < ApplicationController
 
   def dish_params
     @dish = Dish.find(params[:id])
+  end
+
+  def set_cart
+    @cart = current_cart
   end
 end

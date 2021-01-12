@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :set_cart
   before_action :authenticate_user!, only: [:index]
   before_action :set_dish, only: [:index, :create]
   
@@ -38,7 +39,7 @@ class OrdersController < ApplicationController
     )
   end
 
-
-
-
+  def set_cart
+    @cart = current_cart
+  end
 end

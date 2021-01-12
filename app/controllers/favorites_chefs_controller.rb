@@ -1,4 +1,5 @@
 class FavoritesChefsController < ApplicationController
+  before_action :set_cart
   before_action :chef_params
 
   def create
@@ -13,6 +14,10 @@ class FavoritesChefsController < ApplicationController
 
   def chef_params
     @chef = Chef.find(params[:id])
+  end
+
+  def set_cart
+    @cart = current_cart
   end
 
 end

@@ -1,0 +1,23 @@
+<%= render "shared/header" %>
+
+<div class="cart">
+  <div class="cart-content">
+    <div class="cart__content__title">
+      選択した料理リスト
+    </div>
+    <% if @line_items.count == 0 %>
+      <div class="cart__content__nothing">
+        Your basket is empty...
+        <div class="nothing-in-cart">
+        <%= image_tag "basket.png", size: '320x320'%>
+        </div>
+        選択された料理がありません
+      </div>
+    <% else %>
+      
+      <%= link_to '注文に進む', dish_orders_path(@cart.id),class:"cart-order-btn"%>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/second-footer" %>

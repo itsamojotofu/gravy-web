@@ -1,5 +1,12 @@
 <%= render "shared/second-header"%>
 
+
+<% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <%= form_with model: @chef, url: chef_registration_path, id: 'new_chef', class: 'new_chef', local: true do |f| %>
 <div class="chef-signup-background">
   <div class="signup-wrap">

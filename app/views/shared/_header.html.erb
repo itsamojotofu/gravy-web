@@ -6,11 +6,12 @@
         <%= "ようこそ、" + User.find(current_user.id).nickname + "さん" %>
         <li><%= link_to "マイページ", "/users/#{current_user.id}", class: "post-btn" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "post-btn" %></li>
+        <li><%= link_to "カートを確認する", "/carts/#{@cart.id}", class: "choice-btn" %></li>
       <% elsif chef_signed_in? %>
         <%= "ようこそ、" + Chef.find(current_chef.id).name + "さん" %>
         <li><%= link_to "マイページ", "/chefs/#{current_chef.id}", class: "post-btn" %></li>
         <li><%= link_to 'ログアウト', destroy_chef_session_path, method: :delete, class: "post-btn" %></li>
-        <li><%= link_to "料理をメニューに追加", "/dishes/new" %></li>
+        <li><%= link_to "料理をメニューに追加", "/dishes/new", class: "choice-btn" %></li>
       <% else %>
         <h2>ユーザーの方はこちら</h2>
         <li><%= link_to 'ログイン', new_user_session_path, class: "post-btn" %></li>
@@ -34,12 +35,14 @@
         <% if user_signed_in? %>
           <li><%= link_to "マイページ", "/users/#{current_user.id}", class: "post-btn" %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "post-btn" %></li>
+          <li class="cart-btn"><%= link_to image_tag("basket.png"), "/carts/#{@cart.id}" %></li>
         <% elsif chef_signed_in? %>
           <li><%= link_to "マイページ", "/chefs/#{current_chef.id}", class: "post-btn" %></li>
           <li><%= link_to 'ログアウト', destroy_chef_session_path, method: :delete, class: "post-btn" %></li>
         <% else %>
           <li><%= link_to 'ログイン', new_user_session_path, class: "post-btn" %></li>
           <li><%= link_to '新規登録', new_user_registration_path, class: "post-btn" %></li>
+          <li class="cart-btn"><%= link_to image_tag("basket.png"), "/carts/#{@cart.id}" %></li>
         <% end %> 
       </ul>
   </div>
