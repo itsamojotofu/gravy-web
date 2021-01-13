@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class OrdersController < ApplicationController
+  before_action :set_cart
   before_action :authenticate_user!, only: [:index]
-  before_action :set_dish, only: [:index, :create]
-  
+  before_action :set_dish, only: %i[index create]
+
   def index
     @order = Order.new
   end
@@ -26,7 +29,7 @@ class OrdersController < ApplicationController
   end
 
   def set_params
-    params.permit().merge(user_id: current_user.id, dish_id: params[:dish_id], token: params[:token])
+    params.permit.merge(user_id: current_user.id, dish_id: params[:dish_id], token: params[:token])
   end
 
   def pay_dish
@@ -38,7 +41,7 @@ class OrdersController < ApplicationController
     )
   end
 
-
-
-
+  def set_cart
+    @cart = current_cart
+  end
 end

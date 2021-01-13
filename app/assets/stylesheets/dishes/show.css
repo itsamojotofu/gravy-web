@@ -28,7 +28,7 @@
   left: 8%;
   margin-right: 50px;
   height: 1px;
-  z-index: 9999;  
+  z-index: 9000;  
 }
 
 .dish-show-info {
@@ -87,16 +87,6 @@
   display: block;
   padding-bottom: 1vh;
   font-size: 2vh;
-}
-
-.dish-red-btn {
-  text-align: center;
-  background-color: #ea352d;
-  font-size: 24px;
-  font-weight: bold;
-  color: #FFF;
-  margin: 20px 0px;
-  padding: 2vh 10vw;
 }
 
 .or-text {
@@ -169,4 +159,8 @@
 
 #display-inline {
   display: inline;
+}
+
+.heart-btn-non-user {
+  padding-top: 20px;
 }

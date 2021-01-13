@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   root to: 'dishes#index'
 
   resources :dishes do
-    resources :orders, only: [:index, :create]
+    resources :orders, only: %i[index create]
   end
 
   resources :chefs, only: :show
@@ -35,4 +35,11 @@ Rails.application.routes.draw do
   post 'favorite_chef/:id' => 'favorites_chefs#create', as: 'create_favorite'
   delete 'favorite_chef/:id' => 'favorites_chefs#destroy', as: 'destroy_favorite'
 
+  resources :line_items
+
+  resources :carts, only: %i[show update destroy] do
+    collection do
+      post 'add_item'
+    end
+  end
 end

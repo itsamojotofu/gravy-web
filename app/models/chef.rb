@@ -26,5 +26,4 @@ class Chef < ApplicationRecord
   has_many :favorite_chefs
   has_many :users, through: :favorite_chefs
   has_many :likes, through: :dishes
-  
 end

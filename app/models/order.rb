@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Order < ApplicationRecord
   belongs_to :user
   belongs_to :dish
@@ -8,5 +10,4 @@ class Order < ApplicationRecord
     validates :user_id
     validates :token
   end
-
 end
