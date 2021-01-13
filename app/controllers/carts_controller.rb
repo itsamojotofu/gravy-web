@@ -10,11 +10,9 @@ class CartsController < ApplicationController
   def add_item
     @line_item = @cart.line_items.build(dish_id: params[:dish_id]) if @line_item.blank?
     @line_item.quantity += params[:quantity].to_i
-    binding.pry
     if @line_item.save
       redirect_to current_cart
     else
-      flash[:notice] = "料理の追加に失敗しました"
       redirect_to  dish_path(params[:dish_id])
     end
   end

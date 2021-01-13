@@ -3,7 +3,7 @@
 <div class="cart">
   <div class="cart-content">
     <div class="cart__content__title">
-      選択した料理リスト
+      選択されている料理
     </div>
     <% if @line_items.count == 0 %>
       <div class="cart__content__nothing">
@@ -14,8 +14,37 @@
         選択された料理がありません
       </div>
     <% else %>
-      
-      <%= link_to '注文に進む', dish_orders_path(@cart.id),class:"cart-order-btn"%>
+      <div class="cart__content__something">
+        <div class="dish-show-info-cart">
+          <table class="cart-table">
+            <thead>
+              <th></th>
+              <th>料理名</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th></th>
+            </thead>
+            <% @line_items.each do |line_item| %>
+            <% dish = line_item.dish %>
+            <tbody>
+              <td><%= image_tag dish.image,class:"dish-box-img-cart" %></td>
+              <td><%= dish.name %></td>
+              <td>
+              <div>
+              <%= form_with url: line_item_path(line_item), method: :patch, local: true do |f| %>
+                <%= f.number_field :quantity, placeholder: "#{line_item.quantity}", value: "#{line_item.quantity}", min: 1, class: :form__cart %>
+                <%= f.submit '変更', class: :form__cart__btn %>
+              <% end %>
+              </div>
+              </td>
+              <td>¥<%= line_item.total_price %></td>
+              <td id="cross-btn"><%= link_to image_tag("cross.png"), line_item_path(line_item), method: :delete, data: { confirm: '削除しますか?' }%></td>
+            </tbody>
+            <% end %>
+          </table>
+        </div>
+        <%= link_to '注文に進む', dish_orders_path(@cart.id),class:"cart-order-btn"%>
+      </div>
     <% end %>
   </div>
 </div>

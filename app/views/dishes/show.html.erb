@@ -32,22 +32,17 @@
           <%= link_to '商品の編集', edit_dish_path(@dish.id), method: :get, class: "dish-red-btn" %>
           <p class='or-text'>or</p>
           <%= link_to '削除', dish_path(@dish.id), method: :delete, class:'dish-destroy' %>
-          <% end %>   
+          <% end %>
         <% end %>
 
         <% if user_signed_in? %>
           <% if current_user.prefecture.name == @dish.chef.prefecture.name %>
             <%= form_with url: add_item_carts_path, local: true do |f| %>
               <%= f.label :quantity, "数量" %>
-              <%= f.text_field :quantity, placeholder: :選択していください, class: :form__title %>
+              <%= f.number_field :quantity, placeholder: "選択していください", class: :form__title %>
               <%= f.hidden_field :dish_id, :value => @dish.id %>
               <%= f.hidden_field :cart_id, :value => @cart.id %>
-              <%= f.submit 'カゴに追加', class: :form__btn %>
-              <% if flash[:notice] %>
-                <div class="flash-add-cart">
-                  <%= flash[:notice] %>
-                </div>
-              <% end %>
+              <%= f.submit 'カゴに入れる', class: :form__btn %>
             <% end %>
           <% else %>
             <h2>※配達対象地域ではありません※<h2>

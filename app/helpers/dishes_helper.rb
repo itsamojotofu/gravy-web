@@ -2,8 +2,8 @@
 
 module DishesHelper
   def stock_array_maker(stock)
-    product = Product.find(params[:id])
-    stock = product.stock_quantity
+    dish = Dish.find(params[:id])
+    stock = dish.stock_quantity
     array = []
     n = 0
     loop {

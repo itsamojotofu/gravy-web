@@ -36,10 +36,12 @@ Rails.application.routes.draw do
   delete 'favorite_chef/:id' => 'favorites_chefs#destroy', as: 'destroy_favorite'
 
   resources :line_items
+
   
   resources :carts, only: [:show, :update, :destroy] do
     collection do
       post 'add_item'
     end
   end
+
 end

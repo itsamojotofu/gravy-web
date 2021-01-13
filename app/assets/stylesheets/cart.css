@@ -7,17 +7,17 @@
 .cart-content {
   width: 70%;
   border: 3px #ffeb7a double;
-  margin: 30px auto;
+  margin: 54px auto;
   z-index: -9999;
   text-align: center;
-  padding: 0 5vw 5vh;
+  padding: 0 10vw 5vh;
 }
 
 
 .cart__content__title {
   font-size: 1.7em;
   color: #3b3b3b;
-  padding: 5vh 0 5vh;
+  padding: 5vh 0 0;
 }
 
 .cart__content__nothing {
@@ -31,6 +31,50 @@
   margin: 3.5vh;
 }
 
+.cart__content__something {
+  width: 100%;
+  font-size: 25px;
+  color: gray;
+  padding: 1vh 0 5vh;
+}
+
+.dish-show-info-cart {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 0 2vh;
+  margin-bottom: 2vh;
+}
+
+.dish-box-img-cart {
+  height: 10vh;
+  width: 10vw;
+  min-height: 200px;
+  min-width: 200px;
+  background-color: white;
+  object-fit: contain;
+  border: 1px gray solid;
+  margin: 20px 10px 20px 0;
+}
+
+.cart-table {
+  color: black;
+  font-size: 18px;
+  width: 100%;
+} 
+
+
+.cart-table th{
+  text-align: center;
+  padding: 50px 30px 10px;
+  border-bottom: 1px black solid;
+}
+
+.cart-table td table{
+
+}
+
 .cart-order-btn {
   text-align: center;
   background-color: #222222;
@@ -39,4 +83,20 @@
   margin: 20px 0px;
   padding: 1vh 10vw;
   height: 50px;
+}
+
+#cross-btn img{
+  width: 20px;
+  height: 20px;
+}
+
+.form__cart {
+  text-align: center;
+  width: 42px;
+}
+
+.form__cart__btn {
+  padding: 0 5px;
+  color: white;
+  background-color: #222222;
 }
