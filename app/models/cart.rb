@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
   has_many :dishes, through: :line_items
@@ -11,13 +13,13 @@ class Cart < ApplicationRecord
     line_items.find_or_initialize_by(quantity: quantity)
   end
 
-  #Cartモデルにカートに含まれる全ての商品の合計金額を表示させる
+  # Cartモデルにカートに含まれる全ての商品の合計金額を表示させる
   def total_price
-    line_items.to_a.sum{|item| item.total_price}
+    line_items.to_a.sum(&:total_price)
   end
 
-  #Cartモデルに商品合計個数を表示させる
+  # Cartモデルに商品合計個数を表示させる
   def total_number
-    line_items.to_a.sum{|item| item.quantity}
+    line_items.to_a.sum(&:quantity)
   end
 end

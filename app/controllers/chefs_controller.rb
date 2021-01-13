@@ -2,7 +2,6 @@
 
 class ChefsController < ApplicationController
   before_action :set_cart
-  
 
   def show
     @chef = Chef.find(params[:id])

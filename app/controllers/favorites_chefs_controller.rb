@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FavoritesChefsController < ApplicationController
   before_action :set_cart
   before_action :chef_params
@@ -19,5 +21,4 @@ class FavoritesChefsController < ApplicationController
   def set_cart
     @cart = current_cart
   end
-
 end

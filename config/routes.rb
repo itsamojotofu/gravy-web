@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   root to: 'dishes#index'
 
   resources :dishes do
-    resources :orders, only: [:index, :create]
+    resources :orders, only: %i[index create]
   end
 
   resources :chefs, only: :show
@@ -37,11 +37,9 @@ Rails.application.routes.draw do
 
   resources :line_items
 
-  
-  resources :carts, only: [:show, :update, :destroy] do
+  resources :carts, only: %i[show update destroy] do
     collection do
       post 'add_item'
     end
   end
-
 end

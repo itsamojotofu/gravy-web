@@ -14,21 +14,16 @@ class ApplicationController < ActionController::Base
 
   def current_cart
     current_cart = Cart.find_by(id: session[:cart_id])
-    current_cart = Cart.create unless current_cart
+    current_cart ||= Cart.create
     session[:cart_id] = current_cart.id
     current_cart
   end
-  
+
   def chef_caution
-    if user_signed_in?
-      flash[:notice] = "ユーザー用アカウントから一度ログアウトして、シェフ用アカウント作成に進んでください"
-    end
-  end
-  
-  def user_caution
-    if chef_signed_in?
-      flash[:notice] = "シェフ用アカウントから一度ログアウトして、サインアップに進んでください"
-    end
+    flash[:notice] = 'ユーザー用アカウントから一度ログアウトして、シェフ用アカウント作成に進んでください' if user_signed_in?
   end
 
+  def user_caution
+    flash[:notice] = 'シェフ用アカウントから一度ログアウトして、サインアップに進んでください' if chef_signed_in?
+  end
 end

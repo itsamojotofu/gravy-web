@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CartsController < ApplicationController
-  before_action :set_line_item, only: [:add_item, :destroy]
+  before_action :set_line_item, only: %i[add_item destroy]
   before_action :set_user
   before_action :set_cart
 
@@ -13,7 +15,7 @@ class CartsController < ApplicationController
     if @line_item.save
       redirect_to current_cart
     else
-      redirect_to  dish_path(params[:dish_id])
+      redirect_to dish_path(params[:dish_id])
     end
   end
 
@@ -23,6 +25,7 @@ class CartsController < ApplicationController
   end
 
   private
+
   def set_user
     @user = current_user
   end

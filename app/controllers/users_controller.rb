@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :set_cart
 
@@ -6,7 +8,7 @@ class UsersController < ApplicationController
     @dishes = @user.dishes
     @chefs = @user.chefs
   end
-  
+
   private
 
   def set_cart
