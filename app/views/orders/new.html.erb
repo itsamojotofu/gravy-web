@@ -7,21 +7,31 @@
     </h1>
     </div>
     <%# 購入内容の表示 %>
-    <div class='buy-dish-info'>
-      <%= image_tag @dish.image, class: 'buy-dish-img' %>
-      <div class='buy-dish-right-content'>
-        <h2 class='buy-dish-text'>
-          <%= @dish.name %>
-        </h2>
-        <div class='buy-dish-price'>
-          <p class='dish-price-text'>¥<%= @dish.price %></p>
-          <p class='dish-price-sub-text'><%= @dish.name %></p>
-        </div>
-      </div>
+    <div class="order_dishes_list">
+      <table class="order-table">
+        <thead>
+          <th></th>
+          <th>料理名</th>
+          <th>数量</th>
+          <th>小計</th>
+        </thead>
+        <% @line_items.each do |line_item| %>
+        <% dish = line_item.dish %>
+        <tbody>
+          <td><%= image_tag dish.image,class:"dish-box-img-cart" %></td>
+          <td><%= dish.name %></td>
+          <td><%= line_item.quantity %></td>
+          <td>¥<%= line_item.total_price %></td>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+    <div class="return-to-another">
+    <%= link_to 'カゴに戻る', "/carts/#{@cart.id}", class:"cart-order-btn" %>
     </div>
     <%# /購入内容の表示 %>
 
-    <%= form_with model: @order, url: dish_orders_path(@dish.id), id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with model: @order, url: orders_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
 
     <%# お届け先の表示 %>
     <div class='shipping-address-form'>
@@ -55,7 +65,7 @@
           <tbody>
             <tr>
               <th class="table__col1">電話番号</th>
-              <td class="table__col2"><%= @chef.phone_number %></td>
+              <td class="table__col2"><%= @user.phone_number %></td>
             </tr>
           </tbody>
         </table>
@@ -115,7 +125,7 @@
         お支払い金額
       </h1>
       <p class='dish-payment-price'>
-        ¥<%= @dish.price %>
+        ¥<%= @cart.total_price %>
       </p>
     </div>
     <%# /支払額の表示 %>

@@ -20,9 +20,9 @@ Rails.application.routes.draw do
 
   root to: 'dishes#index'
 
-  resources :dishes do
-    resources :orders, only: %i[index create]
-  end
+  resources :dishes
+
+  resources :orders, only: [:new, :create, :index]
 
   resources :chefs, only: :show
   resources :users, only: :show

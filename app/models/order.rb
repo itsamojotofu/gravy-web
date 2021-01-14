@@ -2,7 +2,8 @@
 
 class Order < ApplicationRecord
   belongs_to :user
-  belongs_to :dish
+  has_many :dishes, through: :order_details
+  has_many :order_details, dependent: :destroy
 
   attr_accessor :token
 
