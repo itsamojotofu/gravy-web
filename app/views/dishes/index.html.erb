@@ -1,7 +1,7 @@
 <%= render "shared/header"%>
 <div class="top-space">
 </div>
-
+<div class = "gravy-home">
   <div class="gravy-wrap">
     <div class="gravy-text">
       <p class="gravy-copy">隠れた名シェフを発掘しませんか？</p>
@@ -50,6 +50,12 @@
   </div>
 </div>
 
+<div class="service-area-visualized">
+  <div><h1>Gravyが利用可能な地域</h1></div>
+  <div id='map'></div>
+  <%= link_to '自分の地域を入力してみる', "#", class: "subtitle" %>
+</div>
+
 <%# 料理一覧 %>
 
 <div class='dish-contents'>
@@ -58,7 +64,7 @@
       <h2 class='title'>最新の料理</h2>
       </div>
       <div>
-      <%= link_to '料理から探す', "#", class: "subtitle" %>
+      <%= link_to '料理から探す ≫', "#", class: "subtitle" %>
       </div>
     </div>
     <div class='dish-lists'>
@@ -118,7 +124,7 @@
       <h2 class='title'>最新のシェフ</h2>
       </div>
       <div>
-      <%= link_to 'シェフから探す', "#", class: "subtitle" %>
+      <%= link_to 'シェフから探す ≫', "#", class: "subtitle" %>
       </div>
     </div>
     <div class='dish-lists'>

@@ -2,6 +2,8 @@
   font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 }
 
+html { scroll-behavior: smooth;}
+
 a {
   color:black;
 }
@@ -12,7 +14,6 @@ a {
 }
 
 .gravy-home {
-
   width: 100%;
   position: relative;
   background-color: #ffe54f;
@@ -128,6 +129,38 @@ a {
 
 /* //イントロダクション */
 
+.service-area-visualized {
+  width: 100%;
+  padding-bottom: 7vh;
+  text-align: right;
+}
+
+.service-area-visualized h1{
+  width: 400px;
+  border-bottom: 3px gold double;
+  margin: 0 auto;
+  position:relative;
+}
+
+.service-area-visualized .subtitle{
+  padding-right: 10.5%;
+  color: #222222;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.service-area-visualized .subtitle:hover{
+  text-decoration: none;
+}
+
+#map {
+  height: 40vh;
+  min-height: 400px;
+  width: 80%;
+  margin: 20px auto 10px;
+}
+
+
 
 /* 料理一覧 (シェフ一覧と共通)*/
 
@@ -142,7 +175,7 @@ a {
   width: 100%;
   justify-content: space-between;
   padding: 1vh 2vw 1vh;
-  border-bottom: 5px gold double;
+  border-bottom: 4px gold double;
   margin-bottom: 10px;
 }
 

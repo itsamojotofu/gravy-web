@@ -11,5 +11,63 @@
 
   <body>
     <%= yield %>
+    <script>
+    let map
+
+    function initMap(){
+      geocoder = new google.maps.Geocoder()
+
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 39.2048, lng:138.2529},
+        zoom: 4.5,
+        disableDefaultUI: true,
+      });
+
+      //マーカーの情報
+      var data = new Array();
+        data.push({
+          lat: '43.333169', 
+          lng: '142.448730', 
+          url: '#' 
+        });
+        data.push({
+          lat: '35.844535',
+          lng: '139.658203',
+          url: '#'
+      });
+        data.push({
+          lat: '34.425036',
+          lng: '132.407227',
+          url: '#'
+      });
+        data.push({
+          lat: '33.605470',
+          lng: '130.407715',
+          url: '#'
+      });
+        data.push({
+          lat: '36.553775',
+          lng: '136.625977',
+          url: '#'
+      });
+
+      //マーカーを配置するループ
+        for (i = 0; i < data.length; i++) {
+          var markers = new google.maps.Marker({
+            position: new google.maps.LatLng(data[i].lat, data[i].lng),
+            map: map
+          });
+          //クリックしたら指定したurlに遷移するイベント
+          google.maps.event.addListener(markers, 'click', (function(url){
+            return function(){ location.href = url; };
+          })(data[i].url));
+        }
+      }
+
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV2GkOE7_pHX4PaTwYho3xmmnHj_kOpWs&callback=initMap" async defer></script>
   </body>
+  
 </html>
