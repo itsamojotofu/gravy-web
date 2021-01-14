@@ -1,0 +1,36 @@
+.order_dishes_list {
+  width: 60vw;
+  min-width: 450px;
+  background-color: white;
+  padding: 5vh 5vw 2vh;
+  display: flex;
+  justify-self: center;
+  font-size: 18px;
+}
+
+.order-table {
+  background-color: white;
+  width: 90%;
+  padding: 10vh auto;
+  text-align: center;
+}
+
+.order-table th {
+  text-align: center;
+}
+
+.order-table td {
+  text-align: center;
+}
+
+.return-to-another {
+  width: 60vw;
+  min-width: 450px;
+  background-color: white;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.cart-order-btn:hover {
+  opacity: 0.9;
+}
