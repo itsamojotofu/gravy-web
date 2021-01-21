@@ -1,0 +1,117 @@
+<%= render "shared/header" %>
+
+
+
+<div class="chef_search_top">
+  <div class="search-heading">
+    <p> Gravy のシェフたちをご紹介</p>
+  </div>
+  <%= search_form_for @p, url: search_chefs_path do |f| %>
+    <div>
+      <div class="search-container">
+        <%= f.search_field :name_cont, :placeholder => "お探しのシェフはいますか？", class:"search-box" %>
+        <%= f.submit "シェフを探す", class:"search-btn" %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
+<div class="search__inner"> 
+  <div class="search__conditional">
+    <h1>条件で探す</h1>
+    <%= search_form_for @pro, url: search_chefs_path do |f| %>
+      <div>
+        <%# カテゴリー %>
+        <div class="search-form">
+          <%= f.label :genre_id_eq, "得意ジャンル", class: "category"%><br>
+          <div class="collection-padding">
+          <%= f.collection_select(:genre_id_eq, Genre.all, :id, :name, {},{class:"collection-form"}) %><br>
+          </div>
+        </div>
+        <%# 年代 %>
+        <div class="search-form">
+          <%= f.label :age_id_eq, "年齢層", class: "category"%><br>
+          <div class="collection-padding">
+          <%= f.collection_select(:age_id_eq, Age.all, :id, :name, {},{class:"collection-form"}) %><br>
+          </div>
+        </div>
+        <%# 性別 %>
+        <div class="search-form">
+          <%= f.label :gender_id_eq, "ジェンダー", class: "category"%><br>
+          <div class="price-range">
+          <br>
+            <%= f.radio_button :gender_id_eq, '' %>
+            <label for="q_gender_id_eq_" class="radio03">指定なし</label><br>
+            <%= f.radio_button :gender_id_eq, '2' %>
+            <label for="q_gender_id_eq_2" class="radio03">男性</label><br>
+            <%= f.radio_button :gender_id_eq, '3' %>
+            <label for="q_gender_id_eq_3" class="radio03">女性</label><br>
+          </div><br>
+        </div>
+        <%# ステータス %>
+        <div class="search-form">
+          <%= f.label :status_id_eq, "現在の状況", class: "category"%><br>
+          <div class="price-range">
+          <br>
+            <%= f.radio_button :status_id_eq, '' %>
+            <label for="q_status_id_eq_" class="radio03">指定なし</label><br>
+            <%= f.radio_button :status_id_eq, '2' %>
+            <label for="q_status_id_eq_2" class="radio03">営業中</label><br>
+            <%= f.radio_button :status_id_eq, '3' %>
+            <label for="q_status_id_eq_3" class="radio03">順番待ち</label><br>
+            <%= f.radio_button :status_id_eq, '4' %>
+            <label for="q_status_id_eq_4" class="radio03">休業中</label><br>
+          </div>
+        </div>
+      </div>
+      <div class="search-submit">
+        <%= f.submit "シェフを探す", class:"conditional-btn" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="search__wrapper">
+    <div class="prefecture_detail">
+      <%= "Gravy なら、レストランでは食べることのできない料理を注文することができます。豪華なディナーからちょっとしたスナックまで、 Gravy 専属のシェフが今すぐ調理します。あなたの選んだシェフのメニューから料理を選択し注文しましょう。お気に入りに登録したシェフや料理はマイページより確認できます。" %>
+    </div>
+    <div class="search-result-number">
+      <p>該当した数： <%= @profiles.count %>人</p>
+    </div>
+    <%# シェフ一覧 %>
+    <div class='search-lists'>
+    <% if @profiles.present? %>
+      <% @profiles.each do |profile| %>
+      <div class='list'>
+        <%= link_to chef_path(profile.chef.id) do %>
+        <div class='dish-img-content'>
+          <% if profile.image.attached? %>
+          <%= image_tag profile.image, class: "dish-img" %>
+          <% end %>
+        </div>
+        <div class='dish-info'>
+          <div>
+            <h3 class='dish-name'>
+              <%= profile.chef.name %>シェフ
+            </h3>
+            <div class='dish-price'>
+              <span><%= profile.age.name %><%= profile.gender.name %>/<%= profile.genre.name %></span>
+            </div>
+          </div>
+          <div id="chef_<%= profile.chef.id %>">
+          <%= render 'favorite', chef: profile.chef %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    <% else %>
+      <div class="chef__content__nothing">
+        該当するシェフがいません
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

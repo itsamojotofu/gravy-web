@@ -5,7 +5,7 @@
   <div class="dish-box">
     <div id="dish-show-like">
       <span id="dish_<%= @dish.id %>">
-        <%= render 'dish', dish: @dish %>
+        <%= render 'like', dish: @dish %>
       </span>
     </div>
     <div class="dish-show-info">
@@ -60,7 +60,7 @@
         <tbody>
           <tr>
             <th class="detail-dish">調理者</th>
-            <td class="detail-value"><%= @dish.chef.name %>シェフ</td>
+            <td class="detail-value"><%= link_to "#{@dish.chef.name}シェフ", chef_path(@dish.chef.id) %></td>
           </tr>
           <tr>
             <th class="detail-dish">年代/性別</th>
@@ -72,7 +72,7 @@
           </tr>
           <tr>
             <th class="detail-dish">発送時間の目安</th>
-            <%# フードデリバリーの平均配達時間:20分と仮定 %>
+            <%# フードデリバリーの平均配達時間:20分 %>
             <td class="detail-value"><%= @dish.ready.name.to_i + 20 %>分</td>
           </tr>
         </tbody>

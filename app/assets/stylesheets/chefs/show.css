@@ -1,21 +1,17 @@
 .chef__inner{
   width: 100%;
-  padding: 3vh;
+  padding: 90px 5vw 0;
 }
 
 .chef__wrapper{
-  padding-top: 90px;
   padding-bottom: 30px;
 }
 
 .chef__wrapper h2{
   background-color: white;
   width: 100%;
-  text-align: center;
-  font-size: 2vh;
-  font-weight: bold;
-  padding: 2vh;
-  border-bottom: 2px rgb(180, 180, 180) double;
+  font-size: 1.8em;
+  padding: 2vh 2vw;
 }
 
 .chef-show-info{
@@ -50,7 +46,25 @@
   padding: 20px 10px 10px 0;
 }
 
+.chef__content__nothing {
+  width: 100%;
+  font-size: 25px;
+  color: gray;
+  padding: 10vh 0 10vh;
+  text-align: center;
+}
+
 .flash {
   text-align: center;
   background-color: #fff893;
+}
+
+.chef-page-heading {
+  text-align: center;
+  padding: 1vh 2vw 1vh;
+  border-bottom: 4px rgb(180, 180, 180) double;
+}
+
+.page-heading{
+  border-bottom: 4px gold double;
 }

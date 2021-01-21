@@ -1,0 +1,240 @@
+.top-blank{
+  border-top: 100px white solid;
+
+}
+
+.dish_search_top {
+  width: 100%;
+  height: 540px;
+  padding-top: 330px;
+  text-align: center;
+  background-size: cover;
+  background-image: url( <%= asset_path 'dish-plates.jpg' %>);
+}
+
+.chef_search_top {
+  width: 100%;
+  height: 540px;
+  padding-top: 330px;
+  text-align: center;
+  background-size: cover;
+  background-image: url( <%= asset_path 'shaking-flour.jpg' %>);
+}
+
+.search-heading {
+  color: #fff;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1.0);
+  font-size: 2em;
+  padding: 10px;
+}
+
+.search-image {
+  width: 100vw;
+  height: 40vh;
+}
+
+.search-container {
+  margin: 2vh;
+  box-sizing: border-box;
+}
+
+.search-box{
+  background: white;
+  width: 30%;
+  border: none;
+  height: 3.5em;
+  padding: 20px;
+  margin-right: 10px;
+}
+.search-box:focus {
+  outline: 2px solid gold;
+}
+
+.search-btn{
+  cursor: pointer;
+  border: none;
+  width: 10%;
+  background: #ffe54f;
+  color: black;
+  outline : none;
+  height: 3.5em;
+  font-size: 1em;
+}
+
+.search-btn:hover{
+  outline: 1px solid #ffe54f;
+  opacity: 1;
+}
+
+.search-btn:active{
+  opacity: 0.9;
+}
+
+.search_container ::-webkit-input-placeholder {
+  color: #3879D9;
+}
+
+.search__inner{
+  width: 100%;
+  border-top: 10px #ffe54f solid;
+  padding: 40px 2vw 0;
+  display: flex;
+}
+
+.search__conditional{
+  width: 18%;
+  padding-left: 2%;
+  background-color: #f2f2f2;
+}
+
+.search__conditional h1{
+  text-align: left;
+  font-size: 1.8em;
+}
+
+
+.search-submit {
+  width: 100%;
+  padding: 30px 0;
+}
+
+.search-form {
+  font-size: 1.2em;
+}
+
+.search-form .category{
+  font-size: 1.2em;
+  padding: 5px;
+  border-bottom: 2px white solid;
+}
+
+.collection-form {
+  border: 1px gray solid;
+  font-size: 0.9em; 
+}
+
+.collection-padding{
+  padding: 20px 0;
+}
+
+.search__wrapper {
+  width: 80%;
+  margin-left: 20px;
+}
+
+.conditional-btn {
+  cursor: pointer;
+  border: 1px gray solid;
+  width: 120px;
+  background: #ffe54f;
+  color: black;
+  height: 2em;
+  font-size: 1em;
+}
+
+.conditional-btn:hover {
+  opacity: 0.8;
+}
+
+.search-result-number{
+  padding: 20px 40px;
+  text-align: right;
+  font-size: 1.2em;
+}
+
+.search-lists{
+  width: 100%;
+  white-space: normal;
+  margin: 0 0 5vh;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.search-lists>.list {
+  display: inline-block;
+  width: 17.4vw;
+  padding: 2vh 1.5vw 0.5vh;
+  background-color: white;
+  margin: 0.5vh;
+  border: 1px rgb(180, 180, 180) solid;
+}
+
+.search-lists .dish-img {
+  width: 14.5vw;
+  height: 14.5vw;
+  border: 1px gray solid;
+  background-color: white;
+}
+
+.search-lists>.list:hover {
+  border: 1px rgb(39, 39, 39) solid;
+}
+
+.search-lists .dish-name {
+  width: 180px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 2vh;
+  margin-bottom: 5px;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+.radio03 {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 30px;
+    position: relative;
+    width: auto;
+}
+.radio03::before {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 16px;
+    left: 5px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+}
+.radio03::after {
+    background: #fedd1e;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 10px;
+    left: 9px;
+    margin-top: -4px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: scale3d(.3,.3,1);
+    transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+    width: 10px;
+}
+input[type=radio]:checked + .radio03::before {
+    border-color: #666;
+}
+input[type=radio]:checked + .radio03::after {
+    opacity: 1;
+    transform: scale3d(1,1,1);
+}
+
+#q_genre_id_eq{
+  height: 1.8em;
+  width: 120px;
+  text-align: center;
+}
+
+#q_age_id_eq{
+  height: 1.8em;
+  width: 120px;
+  text-align: center;
+}

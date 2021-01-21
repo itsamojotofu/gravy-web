@@ -20,14 +20,23 @@ Rails.application.routes.draw do
 
   root to: 'dishes#index'
 
-  resources :dishes
+  resources :dishes do
+    get :search, on: :collection
+  end
+  
+  resources :chefs do
+    get :search, on: :collection
+  end
+
+  resources :prefectures do
+    get :search, on: :collection
+  end
+
 
   resources :orders, only: [:new, :create, :index]
-
-  resources :chefs, only: :show
   resources :users, only: :show
-
   resources :profiles, only: %i[edit update]
+
 
   post 'like/:id' => 'likes#create', as: 'create_like'
   delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
@@ -42,4 +51,5 @@ Rails.application.routes.draw do
       post 'add_item'
     end
   end
+
 end

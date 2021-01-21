@@ -1,0 +1,19 @@
+<%= render "shared/header"%>
+
+<div class="no-service">
+  <div class="area__content__nothing">
+    Gravy is not available in your area...
+    <div class="nothing-in-cart">
+    <%= image_tag "apology.png", size: '320x320'%>
+    </div>
+    サービスのエリア対象外です。
+  </div>
+
+  <div class="service-area-visualized">
+  <div><h1>Gravyが利用可能な地域</h1></div>
+  <div id='map'></div>
+  <%= link_to '他の地域を入力する', root_path, class: "subtitle" %>
+  </div>
+</div>
+
+<%= render "shared/footer"%>

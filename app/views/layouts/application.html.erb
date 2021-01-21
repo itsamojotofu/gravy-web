@@ -14,12 +14,13 @@
     <script>
     let map
 
-    function initMap(){
+    window.onload = function initMap(){
+
       geocoder = new google.maps.Geocoder()
 
       map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 39.2048, lng:138.2529},
-        zoom: 4.5,
+        zoom: 5,
         disableDefaultUI: true,
       });
 
@@ -28,46 +29,63 @@
         data.push({
           lat: '43.333169', 
           lng: '142.448730', 
-          url: '#' 
+          url: '/prefectures/2' 
         });
         data.push({
           lat: '35.844535',
           lng: '139.658203',
-          url: '#'
+          url: '/prefectures/14'
+      });
+      data.push({
+          lat: '36.553775',
+          lng: '136.625977',
+          url: '/prefectures/18'
       });
         data.push({
           lat: '34.425036',
           lng: '132.407227',
-          url: '#'
+          url: '/prefectures/35'
       });
         data.push({
           lat: '33.605470',
           lng: '130.407715',
-          url: '#'
-      });
-        data.push({
-          lat: '36.553775',
-          lng: '136.625977',
-          url: '#'
+          url: '/prefectures/41'
       });
 
       //マーカーを配置するループ
-        for (i = 0; i < data.length; i++) {
-          var markers = new google.maps.Marker({
-            position: new google.maps.LatLng(data[i].lat, data[i].lng),
-            map: map
-          });
-          //クリックしたら指定したurlに遷移するイベント
-          google.maps.event.addListener(markers, 'click', (function(url){
-            return function(){ location.href = url; };
-          })(data[i].url));
-        }
+      for (i = 0; i < data.length; i++) {
+        var markers = new google.maps.Marker({
+          icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+          position: new google.maps.LatLng(data[i].lat, data[i].lng),
+          map: map
+        });
+        //クリックしたら指定したurlに遷移するイベント
+        google.maps.event.addListener(markers, 'click', (function(url){
+          return function(){ location.href = url; };
+        })(data[i].url));
       }
+    }
 
+    function initAutocomplete() {
+      
+      var input = document.getElementById('search-text');
 
-
+      var LatLngFrom = new google.maps.LatLng(35.692195,139.7576653);
+      var LatLngTo   = new google.maps.LatLng(35.696157,139.7525771);
+      var bounds = new google.maps.LatLngBounds(LatLngFrom, LatLngTo);
+      
+      var options = {
+          types: ['(regions)'],
+          bounds: bounds,
+          componentRestrictions: {country: 'jp'}
+      };
+      autocomplete = new google.maps.places.Autocomplete( input, options);
+    }
+    
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV2GkOE7_pHX4PaTwYho3xmmnHj_kOpWs&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV2GkOE7_pHX4PaTwYho3xmmnHj_kOpWs&libraries=places&callback=initAutocomplete" async defer></script>
   </body>
   
 </html>
+
+

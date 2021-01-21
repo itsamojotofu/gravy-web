@@ -18,10 +18,10 @@ class ApplicationController < ActionController::Base
   end
 
   def chef_caution
-    flash[:notice] = 'ユーザー用アカウントから一度ログアウトして、シェフ用アカウント作成に進んでください' if user_signed_in?
+    flash[:notice] = 'ユーザー用アカウントを一度ログアウトしてから、シェフ用アカウント作成に進んでください' if user_signed_in?
   end
 
   def user_caution
-    flash[:notice] = 'シェフ用アカウントから一度ログアウトして、サインアップに進んでください' if chef_signed_in?
+    flash[:notice] = 'シェフ用アカウントを一度ログアウトしてから、サインアップに進んでください' if chef_signed_in?
   end
 end
