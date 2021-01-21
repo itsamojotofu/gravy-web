@@ -3,7 +3,7 @@
 
 <div class="chef__inner">
   <div class="chef__wrapper">
-    <h2 class="page-heading">
+    <h2 class="chef-page-heading">
       <%= "#{@chef.name}シェフのプロフィール"%>
       <% if chef_signed_in? && current_chef.id == @chef.id %>
         <%= link_to 'プロフィールの更新', edit_profile_path(@chef.profile.id), method: :get, class: "post-btn" %> 
@@ -67,7 +67,35 @@
       <%= "#{@chef.name}シェフのメニュー"%>
     </h2>
     <div class="dish-lists">
-      <%= render partial: 'dish', collection: @dishes %>
+    <% if @dishes.present? %>
+      <% @dishes.each do |dish| %>
+        
+      <div class='list'>
+        <%= link_to dish_path(dish.id) do %>
+        <div class='dish-img-content'>
+          <%= image_tag dish.image, class: "dish-img" %>
+        </div>
+        <div class='dish-info'>
+          <div>
+            <h3 class='dish-name'>
+              <%= dish.name %>
+            </h3>
+            <div class='dish-price'>
+              <span><%= dish.price %>円/<%= dish.chef.name %>シェフ</span>
+            </div>
+          </div>
+          <div id="dish_<%= dish.id %>">
+            <%= render 'like', dish: dish %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    <% else %>
+      <div class="chef__content__nothing">
+        登録された料理がありません
+      </div>
+    <% end %>
     </div>
   </div>
 </div>

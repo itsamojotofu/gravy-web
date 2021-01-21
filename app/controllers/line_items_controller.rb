@@ -21,7 +21,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        # cars/:idに遷移する
+        # carts/:idに遷移する
         format.html { redirect_to @line_item.cart, notice: 'カゴに料理が追加されました' }
         format.json { render :show, status: :created, location: @line_item }
       else

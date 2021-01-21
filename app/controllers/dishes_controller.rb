@@ -2,13 +2,14 @@
 
 class DishesController < ApplicationController
   before_action :set_cart
-  before_action :authenticate_chef!, except: %i[index show]
+  before_action :authenticate_chef!, except: %i[index show search]
   before_action :set_dish, only: %i[show edit update destroy]
   before_action :move_to_index, only: %i[edit destroy update]
+  before_action :search_dish, only: [:search]
 
   def index
-    @dishes = Dish.all.order(created_at: 'DESC')
-    @chefs = Chef.all.order(created_at: 'DESC')
+    @dishes = Dish.all.order(created_at: 'DESC').last(10)
+    @chefs = Chef.all.order(created_at: 'DESC').last(10)
   end
 
   def new
@@ -42,6 +43,10 @@ class DishesController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @dishes = @p.result.includes(:chef)
+  end
+
   private
 
   def dish_params
@@ -58,5 +63,11 @@ class DishesController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless current_chef.id == @dish.chef.id
+  end
+
+  def search_dish
+    params[:q][:genre_id_eq] = '' if !params[:q].nil? && (params[:q][:genre_id_eq] == '1')
+    params[:q][:ready_id_eq] = '' if !params[:q].nil? && (params[:q][:ready_id_eq] == '1')
+    @p = Dish.ransack(params[:q])  # 検索オブジェクトを生成
   end
 end

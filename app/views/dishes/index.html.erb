@@ -1,18 +1,24 @@
 <%= render "shared/header"%>
-<div class="top-space">
-</div>
 
+<div class = "gravy-home">
   <div class="gravy-wrap">
-    <div class="gravy-text">
+    <div class="gravy-center">
       <p class="gravy-copy">隠れた名シェフを発掘しませんか？</p>
       <p class="gravy-search">まずは地域を教えてください</p>
+      <p><%= flash[:alert] %></p>
     </div>
-  
+  </div>
     <video id="gravy-video" muted autoplay loop>
       <source src="/assets/family_cooking.mp4" type="video/mp4">
     </video>
-  </div>
 </div>
+
+<%= form_tag(search_prefectures_path,:method => 'get') do %>
+<div class="area-search-top">
+  <%= text_field_tag :search, "", {class: "search-box", id: "search-text", placeholder: "地域を入力"} %>
+  <%= submit_tag 'シェフを探す', :name => nil, class:"search-btn" %>
+</div>
+<% end %>
 
 <div id="mobile-app-intro">
   <div>
@@ -50,6 +56,12 @@
   </div>
 </div>
 
+<div class="service-area-visualized">
+  <div><h1>Gravyが利用可能な地域</h1></div>
+  <div id='map'></div>
+  <%= link_to '地域情報を入力する', "#", class: "subtitle" %>
+</div>
+
 <%# 料理一覧 %>
 
 <div class='dish-contents'>
@@ -58,7 +70,7 @@
       <h2 class='title'>最新の料理</h2>
       </div>
       <div>
-      <%= link_to '料理から探す', "#", class: "subtitle" %>
+      <%= link_to '料理から探す ≫', search_dishes_path, class: "subtitle" %>
       </div>
     </div>
     <div class='dish-lists'>
@@ -112,13 +124,13 @@
 
 <%# シェフ一覧 %>
 
-<div class='dish-contents'>
+  <div class='dish-contents'>
     <div class="recent-dishes">
       <div>
       <h2 class='title'>最新のシェフ</h2>
       </div>
       <div>
-      <%= link_to 'シェフから探す', "#", class: "subtitle" %>
+      <%= link_to 'シェフから探す ≫', search_chefs_path, class: "subtitle" %>
       </div>
     </div>
     <div class='dish-lists'>

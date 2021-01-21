@@ -1,0 +1,113 @@
+<%= render "shared/header" %>
+
+<div class="top-blank">
+</div>
+
+<div class="dish_search_top">
+  <div class="search-heading">
+    <p> Gravy が最高の料理をお届けします</p>
+  </div>
+  <%= search_form_for @p, url: search_dishes_path do |f| %>
+    <div>
+      <div class="search-container">
+        <%= f.search_field :name_cont, :placeholder => "食べたい料理はありませんか？", class:"search-box" %>
+        <%= f.submit "料理を探す", class:"search-btn" %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
+<div class="search__inner"> 
+  <div class="search__conditional">
+    <h1>条件で探す</h1>
+    <%= search_form_for @p, url: search_dishes_path do |f| %>
+      <div>
+        <%# カテゴリー %>
+        <div class="search-form">
+          <%= f.label :genre_id_eq, "カテゴリー", class: "category"%><br>
+          <div class="collection-padding">
+          <%= f.collection_select(:genre_id_eq , Genre.all, :id, :name, {},{class:"collection-form"}) %><br>
+          </div>
+        </div>
+        <%# 配達時間 %>
+        <div class="search-form">
+          <%= f.label :ready_id_eq, "配送時間の目安", class: "category"%><br>
+          <div class="radio">
+          <br>
+            <%= f.radio_button :ready_id_lteq, '', class: "radio03" %>
+            <label for="q_ready_id_lteq_" class="radio03">指定なし</label><br>
+            <%= f.radio_button :ready_id_lteq, '3', class: "radio03" %>
+            <label for="q_ready_id_lteq_3" class="radio03">〜30分</label><br>
+            <%= f.radio_button :ready_id_lteq, '6', class: "radio03" %>
+            <label for="q_ready_id_lteq_6" class="radio03">〜45分</label><br>
+            <%= f.radio_button :ready_id_lteq, '9', class: "radio03" %>
+            <label for="q_ready_id_lteq_9" class="radio03">〜60分</label><br>
+          </div>
+        <br>
+        </div>
+        <%# 希望金額 %>
+        <div class="search-form">
+          <%= f.label :price_eq, "価格帯", class: "category"%><br>
+          <div class="price-range">
+          <br>
+            <%= f.radio_button :price_lteq, '' %>
+            <label for="q_price_lteq_" class="radio03">指定なし</label><br>
+            <%= f.radio_button :price_lteq, '1000' %>
+            <label for="q_price_lteq_1000" class="radio03">〜1,000円</label><br>
+            <%= f.radio_button :price_lteq, '3000' %>
+            <label for="q_price_lteq_3000" class="radio03">〜3,000円</label><br>
+            <%= f.radio_button :price_lteq, '5000' %>
+            <label for="q_price_lteq_5000" class="radio03">〜5,000円</label><br>
+          </div>
+        </div>
+      </div>
+      <div class="search-submit">
+        <%= f.submit "料理を探す", class:"conditional-btn" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="search__wrapper">
+    <div class="prefecture_detail">
+      <%= "Gravy なら、レストランでは食べることのできない料理を注文することができます。豪華なディナーからちょっとしたスナックまで、 Gravy 専属のシェフが今すぐ調理します。あなたの選んだシェフのメニューから料理を選択し注文しましょう。お気に入りに登録したシェフや料理はマイページより確認できます。" %>
+    </div>
+    <div class="search-result-number">
+      <p>料理数： <%= @dishes.count %></p>
+    </div>
+    <%# 料理一覧 %>
+    <div class='search-lists'>
+    <% if @dishes.present? %>
+      <% @dishes.each do |dish| %>
+        
+      <div class='list'>
+        <%= link_to dish_path(dish.id) do %>
+        <div class='dish-img-content'>
+          <%= image_tag dish.image, class: "dish-img" %>
+        </div>
+        <div class='dish-info'>
+          <div>
+            <h3 class='dish-name'>
+              <%= dish.name %>
+            </h3>
+            <div class='dish-price'>
+              <span><%= dish.price %>円/<%= dish.chef.name %>シェフ</span>
+            </div>
+          </div>
+          <div id="dish_<%= dish.id %>">
+            <%= render 'dish', dish: dish %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    <% else %>
+      <div class="chef__content__nothing">
+        該当する料理がありません
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

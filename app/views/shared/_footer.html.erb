@@ -8,8 +8,9 @@
       <div class='details'>
         <h2 class='footer-content-head'>Gravyを使ってみる</h2>
         <ul>
-          <li><%= link_to '料理から探す', "#", class: "footer-link" %></li>
-          <li><%= link_to 'シェフから探す', "#", class: "footer-link" %></li>
+          <li><%= link_to '料理から探す', search_dishes_path, class: "footer-link" %></li>
+          <li><%= link_to 'シェフから探す', search_chefs_path, class: "footer-link" %></li>
+          <li><%= link_to '地域から探す', '#', class: "footer-link" %></li>
         </ul>
       </div>
       <div class='details'>
@@ -33,6 +34,6 @@
   </div>
   <div class="copyright">
     <p id="privacy"> This site is protected by Privacy Policy and Terms of Service apply.</p>
-    <p> © 2020 Gravy Inc.</p>
+    <p> © 2021 Gravy Inc.</p>
   </div>
 </div>
