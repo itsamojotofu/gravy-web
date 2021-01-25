@@ -5,23 +5,17 @@ class ChefsController < ApplicationController
   before_action :move_to_index, except: %i[show search]
   before_action :search_chef, only: [:search]
 
-  def index
-  end
+  def index; end
 
-  def new
-  end
+  def new; end
 
-  def create
-  end
+  def create; end
 
-  def edit
-  end
+  def edit; end
 
-  def update
-  end
-  
-  def destroy
-  end
+  def update; end
+
+  def destroy; end
 
   def show
     @chef = Chef.find(params[:id])
@@ -30,16 +24,33 @@ class ChefsController < ApplicationController
 
   def search
     @profiles = @pro.result.includes(:chef)
-
     @chefs = @p.result.includes(:profile)
-    
+
+    # ユーザーがログインしている場合は自動で提供地域のみに絞る
+    if user_signed_in?
+      @chefs_all = @chefs
+      @chefs = []
+      @chefs_all.each do |chef|
+        @chefs << chef if chef.prefecture.id == current_user.prefecture.id
+      end
+
+      @profiles_all = @profiles
+      @profiles = []
+      @profiles_all.each do |profile|
+        @profiles << profile if profile.chef.prefecture.id == current_user.prefecture.id
+      end
+    end
+
     if @profiles == Profile.all
       @profiles = []
-      
+
       @chefs.each do |chef|
         @profiles << chef.profile
       end
     end
+
+    @total_num = @profiles.count
+    @profiles = Kaminari.paginate_array(@profiles).page(params[:page]).per(8)
   end
 
   private

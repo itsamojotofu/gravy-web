@@ -1,9 +1,48 @@
-<%= render "shared/header" %>
+<%= render "shared/header"%>
+
+<% if flash[:alert] %>
+  <div class="flash-cart">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 
 <div class="cart">
   <div class="cart-content">
+    <% if @chosen_chef %>
+      <div class="cart__chef__title">
+        お選びのシェフ
+      </div>
+      <div class="chef_info_with_cart">
+        <div class='dish-img-content'>
+          <%= image_tag @chosen_chef.profile.image,class:"chef-box-img" %>
+        </div>
+        <div class="middle_blank">
+        </div>
+        <table class="detail-table">
+          <tbody>
+            <tr>
+              <th class="detail-dish">名前</th>
+              <td class="detail-value"><%= link_to "#{@chosen_chef.name}シェフ", chef_path(@chosen_chef.id) %></td>
+            </tr>
+            <tr>
+              <th class="detail-dish">年代/性別</th>
+              <td class="detail-value"><%= @chosen_chef.profile.age.name %> / <%= @chosen_chef.profile.gender.name %></td>
+            </tr>
+            <tr>
+              <th class="detail-dish">発送元の地域</th>
+              <td class="detail-value"><%= @chosen_chef.prefecture.name %></td>
+            </tr>
+            <tr>
+              <th class="detail-dish">営業時間</th>
+              <td class="detail-value"><%= @chosen_chef.profile.business_hour_begin.strftime('%H:%M') %> 〜 <%= @chosen_chef.profile.business_hour_end.strftime('%H:%M') %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
     <div class="cart__content__title">
-      選択されている料理
+      お選びの料理
     </div>
     <% if @line_items.count == 0 %>
       <div class="cart__content__nothing">
@@ -15,6 +54,10 @@
       </div>
     <% else %>
       <div class="cart__content__something">
+        <div class="cart-choices">
+          <div class="cart-choice"><%= link_to "カゴを空にする", cart_path(@cart.id), method: :delete, data: { confirm: 'カゴにある料理を空にしますか?' }%></div>
+          <div class="cart-choice"><%= link_to "メニューに戻る", chef_path(@chosen_chef.id) %></div>
+        </div>
         <div class="dish-show-info-cart">
           <table class="cart-table">
             <thead>
@@ -28,7 +71,7 @@
             <% dish = line_item.dish %>
             <tbody>
               <td><%= image_tag dish.image,class:"dish-box-img-cart" %></td>
-              <td><%= dish.name %></td>
+              <td><%= link_to "#{dish.name}", dish_path(dish.id) %></td>
               <td>
               <div>
               <%= form_with url: line_item_path(line_item), method: :patch, local: true do |f| %>

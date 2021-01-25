@@ -1,0 +1,29 @@
+<% @orders.each do |order| %>
+<div class="list">
+  <div class='order-payment'>
+      <p class='order-payment-top'>
+      注文した日: <%= order.created_at.strftime('%Y/%m/%d') %>
+      </p>
+      <p class='order-payment-top'>
+        お支払い金額: ¥<%= order.total_price %>
+      </p>
+    </div>
+  <table class="cart-table">
+    <thead>
+      <th></th>
+      <th>料理名</th>
+      <th>数量</th>
+      <th>小計</th>
+    </thead>
+      <% order.order_details.each do |detail| %>
+        <% dish = detail.dish %>
+        <tbody>
+          <td><%= image_tag dish.image,class:"dish-box-img-cart" %></td>
+          <td><%= link_to "#{dish.name}", dish_path(dish.id) %></td>
+          <td><%= detail.quantity %></td>
+          <td>¥<%= detail.total_price %></td>
+        </tbody>
+      <% end %>
+  </table>
+</div>
+<% end %>

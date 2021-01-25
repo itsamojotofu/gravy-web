@@ -29,28 +29,34 @@
       </div>
     </div>
     <div class="user__wrapper">
+
       <h2 class="page-heading">
-        <%= "いいねした料理"%>
+        <%= "クレジットカード情報"%>
       </h2>
-      <% if @dishes.present? %>
-        <div class="dish-lists">
-        <%= render partial: 'dish', collection: @dishes %>
-        </div>
-      <% else %>
-        <div class="chef__content__nothing">
-        いいねをした料理がありません
-        </div>
-      <% end %>
-      <h2 class="page-heading">
-        <%= "お気に入りのシェフ"%>
-      </h2>
-      <% if @chefs.present? %>
-        <div class="dish-lists">
-        <%= render partial: 'chef', collection: @chefs %>
-        </div>
-      <% else %>
-        <div class="chef__content__nothing">
-          お気に入りのシェフがいません
+      <% if @user.card.present? %>
+        <div class='credit-card-form'>
+          <div class='buy-dish-title'>
+            <h1 class='transaction-title-text'>
+              クレジットカード情報
+            </h1>
+          </div>
+          <table class="buy-dish-table">
+            <tbody>
+              <tr>
+                <th class="table__col1">カード番号</th>
+                <td class="table__col2"><%= "**** **** **** " + @card[:last4] %></td>
+              </tr>
+              <tr>
+                <th class="table__col1">有効期限</th>
+                <td class="table__col2"><%= @card[:exp_year] %>年 <%= @card[:exp_month] %>月</td>
+              </tr>
+            </tbody>
+          </div>
+          <table class="buy-dish-table">
+          </table>
+          <div class="sell-btn-contents">  
+            <%=link_to 'クレジットカード情報を削除する', card_path(@card.id), method: :delete, class:"cart-order-btn" %>
+          </div>
         </div>
       <% end %>
     </div>

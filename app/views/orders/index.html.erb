@@ -29,28 +29,17 @@
       </div>
     </div>
     <div class="user__wrapper">
-      <h2 class="page-heading">
-        <%= "いいねした料理"%>
+      <h2 class="page-heading-order">
+        注文履歴
       </h2>
-      <% if @dishes.present? %>
-        <div class="dish-lists">
-        <%= render partial: 'dish', collection: @dishes %>
+      <% if @orders.present? %>
+        <div class="order-lists">
+        <%= render partial: 'order', collection: @orders %>
         </div>
+        <%= paginate @orders %>
       <% else %>
         <div class="chef__content__nothing">
-        いいねをした料理がありません
-        </div>
-      <% end %>
-      <h2 class="page-heading">
-        <%= "お気に入りのシェフ"%>
-      </h2>
-      <% if @chefs.present? %>
-        <div class="dish-lists">
-        <%= render partial: 'chef', collection: @chefs %>
-        </div>
-      <% else %>
-        <div class="chef__content__nothing">
-          お気に入りのシェフがいません
+        注文履歴がありません
         </div>
       <% end %>
     </div>

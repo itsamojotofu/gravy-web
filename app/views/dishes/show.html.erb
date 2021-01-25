@@ -3,11 +3,13 @@
 <%# 商品の概要 %>
 <div class="dish-show">
   <div class="dish-box">
+    <% unless chef_signed_in? %>
     <div id="dish-show-like">
       <span id="dish_<%= @dish.id %>">
         <%= render 'like', dish: @dish %>
       </span>
     </div>
+    <% end %>
     <div class="dish-show-info">
       <div class='dish-img-content'>
         <%= image_tag @dish.image,class:"dish-box-img" %>
@@ -29,7 +31,7 @@
         <% end %>
         <% if chef_signed_in? %>
           <% if current_chef.id == @dish.chef.id %>
-          <%= link_to '商品の編集', edit_dish_path(@dish.id), method: :get, class: "dish-red-btn" %>
+          <%= link_to '商品の編集', edit_dish_path(@dish.id), method: :get, class: "dish-edit" %>
           <p class='or-text'>or</p>
           <%= link_to '削除', dish_path(@dish.id), method: :delete, class:'dish-destroy' %>
           <% end %>
@@ -37,18 +39,26 @@
 
         <% if user_signed_in? %>
           <% if current_user.prefecture.name == @dish.chef.prefecture.name %>
-            <%= form_with url: add_item_carts_path, local: true do |f| %>
-              <%= f.label :quantity, "数量" %>
-              <%= f.number_field :quantity, placeholder: "選択していください", class: :form__title %>
-              <%= f.hidden_field :dish_id, :value => @dish.id %>
-              <%= f.hidden_field :cart_id, :value => @cart.id %>
-              <%= f.submit 'カゴに入れる', class: :form__btn %>
+            <% if @dish.chef.profile.status_id == 2 %>
+              <%= form_with url: add_item_carts_path, local: true do |f| %>
+                <%= f.label :quantity, "数量" %>
+                <%= f.number_field :quantity, min: 1, :value => 1, class: :form__cart %>
+                <%= f.hidden_field :dish_id, :value => @dish.id %>
+                <%= f.hidden_field :cart_id, :value => @cart.id %>
+                <%= f.submit 'カゴに入れる', class: :form__cart__btn %>
+              <% end %>
+            <% elsif @dish.chef.profile.status_id == 3 %>
+              <h2>※現在、こちらのシェフは順番待ちです。<h2>
+            <% elsif @dish.chef.profile.status_id == 4 %>
+              <h2>※こちらのシェフは休業中です。<h2>
             <% end %>
           <% else %>
             <h2>※配達対象地域ではありません※<h2>
           <% end %>
         <% else %>
-          <h2>※注文をするにはログインが必要です※</h2>
+          <% unless chef_signed_in? %>
+            <h2>※カゴに追加するにはログインが必要です※</h2>
+          <% end %>
         <% end %>
       </div>
     </div>
