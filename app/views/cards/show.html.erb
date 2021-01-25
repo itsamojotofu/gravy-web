@@ -1,0 +1,64 @@
+<%= render "shared/header" %>
+
+<% if user_signed_in? && current_user.id == @user.id %>
+  <div class="user__inner">
+    <div class="user__choices">
+      <h1>
+        <%= "こんにちは、#{@user.nickname}さん"%>
+      </h1>
+      <div class="user-choice">
+        <%= link_to "いいね＆お気に入り", "/users/#{current_user.id}" %>
+      </div>
+      <div class="user-choice">
+        <%= link_to "注文履歴", "/orders" %>
+      </div>
+      <div class="user-choice">
+        <%= link_to "ユーザー情報確認", edit_user_registration_path %>
+      </div>
+      <% if @user.card.present? %>
+        <div class="user-choice">
+          <%= link_to "クレジットカード情報", card_path(@card.id) %>
+        </div>
+      <% else %>
+        <div class="user-choice">
+        <%= link_to "クレジットカード登録", new_card_path %>
+        </div>
+      <% end %>
+      <div class="user-choice">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </div>
+    </div>
+    <div class="user__wrapper">
+
+      <h2 class="page-heading">
+        <%= "クレジットカード情報"%>
+      </h2>
+      <% if @user.card.present? %>
+        <div class='credit-card-form'>
+          <div class='buy-dish-title'>
+            <h1 class='transaction-title-text'>
+              クレジットカード情報
+            </h1>
+          </div>
+          <table class="buy-dish-table">
+            <tbody>
+              <tr>
+                <th class="table__col1">カード番号</th>
+                <td class="table__col2"><%= "**** **** **** " + @card[:last4] %></td>
+              </tr>
+              <tr>
+                <th class="table__col1">有効期限</th>
+                <td class="table__col2"><%= @card[:exp_year] %>年 <%= @card[:exp_month] %>月</td>
+              </tr>
+            </tbody>
+          </div>
+          <table class="buy-dish-table">
+          </table>
+          <div class="sell-btn-contents">  
+            <%=link_to 'クレジットカード情報を削除する', card_path(@card.id), method: :delete, class:"cart-order-btn" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

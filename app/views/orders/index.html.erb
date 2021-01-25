@@ -1,0 +1,47 @@
+<%= render "shared/header" %>
+
+<% if user_signed_in? && current_user.id == @user.id %>
+  <div class="user__inner">
+    <div class="user__choices">
+      <h1>
+        <%= "こんにちは、#{@user.nickname}さん"%>
+      </h1>
+      <div class="user-choice">
+        <%= link_to "いいね＆お気に入り", "/users/#{current_user.id}" %>
+      </div>
+      <div class="user-choice">
+        <%= link_to "注文履歴", "/orders" %>
+      </div>
+      <div class="user-choice">
+        <%= link_to "ユーザー情報確認", edit_user_registration_path %>
+      </div>
+      <% if @user.card.present? %>
+        <div class="user-choice">
+          <%= link_to "クレジットカード情報", card_path(@card.id) %>
+        </div>
+      <% else %>
+        <div class="user-choice">
+        <%= link_to "クレジットカード登録", new_card_path %>
+        </div>
+      <% end %>
+      <div class="user-choice">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </div>
+    </div>
+    <div class="user__wrapper">
+      <h2 class="page-heading-order">
+        注文履歴
+      </h2>
+      <% if @orders.present? %>
+        <div class="order-lists">
+        <%= render partial: 'order', collection: @orders %>
+        </div>
+        <%= paginate @orders %>
+      <% else %>
+        <div class="chef__content__nothing">
+        注文履歴がありません
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

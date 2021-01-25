@@ -11,4 +11,9 @@ class Order < ApplicationRecord
     validates :user_id
     validates :token
   end
+
+  def total_price
+    order_details.to_a.sum(&:total_price)
+  end
+
 end
