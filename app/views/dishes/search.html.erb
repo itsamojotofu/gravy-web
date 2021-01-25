@@ -73,7 +73,7 @@
       <%= "Gravy なら、レストランでは食べることのできない料理を注文することができます。豪華なディナーからちょっとしたスナックまで、 Gravy 専属のシェフが今すぐ調理します。あなたの選んだシェフのメニューから料理を選択し注文しましょう。お気に入りに登録したシェフや料理はマイページより確認できます。" %>
     </div>
     <div class="search-result-number">
-      <p>料理数： <%= @dishes.count %></p>
+      <p>料理数： <%= @total_num %></p>
     </div>
     <%# 料理一覧 %>
     <div class='search-lists'>
@@ -101,6 +101,7 @@
         <% end %>
       </div>
       <% end %>
+      <%= paginate @dishes %>
     <% else %>
       <div class="chef__content__nothing">
         該当する料理がありません

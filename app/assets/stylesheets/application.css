@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ /*ページネーション自体のデザイン*/
+.pagination {
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+}
+
+.pagination a{
+  color: gray;
+}
+
+.pagination a:hover{
+  color: black;
+}
