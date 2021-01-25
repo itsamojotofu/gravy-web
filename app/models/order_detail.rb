@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OrderDetail < ApplicationRecord
   belongs_to :order
   belongs_to :dish
@@ -14,5 +16,4 @@ class OrderDetail < ApplicationRecord
   def total_price
     dish.price * quantity
   end
-  
 end

@@ -6,13 +6,12 @@ class Cart < ApplicationRecord
 
   # Cartモデルに商品（LineItem）を登録するメソッド（カート登録機能）
   def add_dish(dish_id)
-      line_items.find_or_initialize_by(dish_id: dish_id)
+    line_items.find_or_initialize_by(dish_id: dish_id)
   end
 
   def add_quantiy(quantity)
     line_items.find_or_initialize_by(quantity: quantity)
   end
-
 
   def total_price
     line_items.to_a.sum(&:total_price)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :cpp, if: :devise_controller?
   before_action :chef_caution, if: :devise_controller?

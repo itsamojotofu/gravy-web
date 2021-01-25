@@ -1,28 +1,28 @@
+# frozen_string_literal: true
+
 class CardsController < ApplicationController
   before_action :set_cart
   before_action :set_user
   before_action :authenticate_user!
-  
+
   def new
-    if @user.card.present?
-      redirect_to root_path
-    end
+    redirect_to root_path if @user.card.present?
   end
 
   def create
     if params[:card_token] != 'null'
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 環境変数を読み込む
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # 環境変数を読み込む
       customer = Payjp::Customer.create(
-      description: 'test', # テストカードであることを説明
-      card: params[:card_token] # 登録しようとしているカード情報
+        description: 'test', # テストカードであることを説明
+        card: params[:card_token] # 登録しようとしているカード情報
       )
 
-      card = Card.new( 
-        card_token: params[:card_token], 
-        customer_token: customer.id, 
-        user_id: current_user.id 
+      card = Card.new(
+        card_token: params[:card_token],
+        customer_token: customer.id,
+        user_id: current_user.id
       )
-  
+
       card.save
       redirect_to root_path
     else
@@ -33,7 +33,7 @@ class CardsController < ApplicationController
 
   def show
     if @user.card.present?
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 環境変数を読み込む
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # 環境変数を読み込む
       card = Card.find_by(user_id: @user.id) # ユーザーのid情報を元に、カード情報を取得
 
       customer = Payjp::Customer.retrieve(card.customer_token) # 先程のカード情報を元に、顧客情報を取得
@@ -43,7 +43,7 @@ class CardsController < ApplicationController
 
   def destroy
     if @user.card.present?
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 環境変数を読み込む
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # 環境変数を読み込む
       card = Card.find_by(user_id: @user.id) # ユーザーのid情報を元に、カード情報を取得
 
       customer = Payjp::Customer.retrieve(card.customer_token)

@@ -29,7 +29,6 @@ class LineItemsController < ApplicationController
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
-    
   end
 
   def update

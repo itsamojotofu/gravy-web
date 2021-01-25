@@ -9,7 +9,6 @@ class Dish < ApplicationRecord
   has_many :order_details
   has_many :orders, through: :order_details
 
-
   with_options presence: true do
     validates :image
     validates :name

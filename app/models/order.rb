@@ -15,5 +15,4 @@ class Order < ApplicationRecord
   def total_price
     order_details.to_a.sum(&:total_price)
   end
-
 end

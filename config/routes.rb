@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :dishes do
     get :search, on: :collection
   end
-  
+
   resources :chefs do
     get :search, on: :collection
   end
@@ -33,12 +33,10 @@ Rails.application.routes.draw do
     get :search, on: :collection
   end
 
-
-  resources :orders, only: [:new, :create, :index, :show]
-  resources :users, only: [:show, :update]
-  resources :cards, only: [:new, :create, :show, :destroy]
+  resources :orders, only: %i[new create index show]
+  resources :users, only: %i[show update]
+  resources :cards, only: %i[new create show destroy]
   resources :profiles, only: %i[edit update]
-
 
   post 'like/:id' => 'likes#create', as: 'create_like'
   delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
@@ -53,5 +51,4 @@ Rails.application.routes.draw do
       post 'add_item'
     end
   end
-
 end
