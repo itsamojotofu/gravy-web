@@ -1,3 +1,42 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user__inner{
+  width: 100%;
+  padding: 90px 5vw 0;
+  display: flex;
+}
+
+.user__inner h1{
+  font-size: 25px;
+  padding: 5px;
+  border-bottom: 4px gold double;
+  margin-bottom: 20px;
+}
+
+.user__choices {
+  width: 30%;
+  text-align: center;
+}
+
+.user-choice {
+  font-size: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px gold solid;
+  margin: 0 4vw 2vh;
+}
+
+.user-choice:hover {
+  border-bottom: 1px white solid;
+}
+
+.user__wrapper {
+  width: 70%;
+  padding: 50px 0 0 20px;
+}
+
+.user__wrapper h2{
+  font-size: 22px;
+  padding: 1vh 20px;
+}

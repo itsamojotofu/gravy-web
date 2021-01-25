@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'cards/new'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
@@ -33,8 +34,9 @@ Rails.application.routes.draw do
   end
 
 
-  resources :orders, only: [:new, :create, :index]
-  resources :users, only: :show
+  resources :orders, only: [:new, :create, :index, :show]
+  resources :users, only: [:show, :update]
+  resources :cards, only: [:new, :create, :show, :destroy]
   resources :profiles, only: %i[edit update]
 
 

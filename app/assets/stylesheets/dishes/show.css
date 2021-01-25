@@ -90,16 +90,27 @@
 }
 
 .or-text {
-  font-size: 20px;
+  font-size: 18px;
+}
+
+.dish-edit {
+  text-align: center;
+  background-color:  #ffe54f;
+  font-size: 1vw;
+  color: black;
+  margin: 20px 0px;
+  padding: 1vh 10vw;
+  height: 2.8vw;
 }
 
 .dish-destroy {
-  background-color: lightgray;
   text-align: center;
-  font-size: 24px;
-  color: black;
+  background-color: #222222;
+  font-size: 1vw;
+  color: white;
   margin: 20px 0px;
-  padding: 2vh 10vw;
+  padding: 1vh 10vw;
+  height: 2.8vw;
 }
 
 .dish-explain-box {

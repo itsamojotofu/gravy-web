@@ -7,6 +7,26 @@ class CartsController < ApplicationController
 
   def show
     @line_items = @cart.line_items
+    first_line_item = @line_items[0]
+    if first_line_item
+      @chosen_chef = first_line_item.dish.chef
+    end
+
+    @chef_ids = []
+
+    @line_items.each do |line_item|
+      @chef_ids << line_item.dish.chef.id
+    end
+
+    @chef_ids.each do |chef_id|
+      if chef_id != @chosen_chef.id
+        len = @line_items.length
+        @line_items = @line_items.slice(0, len - 1)
+        @cart.line_items = @line_items
+        @chef_ids = []
+        flash[:alert] = '複数のシェフの料理を選択する事はできません。他のシェフの料理を選ぶ場合は、一度カゴを空にしてください。'
+      end
+    end
   end
 
   def add_item
@@ -38,3 +58,4 @@ class CartsController < ApplicationController
     @cart = current_cart
   end
 end
+

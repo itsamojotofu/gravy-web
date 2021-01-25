@@ -4,6 +4,12 @@
   margin: auto;
 }
 
+.flash-cart{
+  padding-top: 95px;
+  text-align: center;
+  background-color: #fff893;
+}
+
 .cart-content {
   width: 70%;
   border: 3px #ffeb7a double;
@@ -17,7 +23,25 @@
 .cart__content__title {
   font-size: 1.7em;
   color: #3b3b3b;
-  padding: 5vh 0 0;
+  padding: 2vh 0 0;
+}
+
+.cart-choices {
+  display: flex;
+  justify-content: center;
+}
+
+.cart-choice {
+  border-bottom: 1px black solid;
+  color: black;
+  line-height: 32px;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0.5px;
+  margin: 10px;
+}
+.cart-choice:hover{
+border:0px white solid;
 }
 
 .cart__content__nothing {
@@ -64,6 +88,13 @@
   width: 100%;
 } 
 
+.cart-table a{
+  text-decoration: underline;
+} 
+
+.cart-table a:hover{
+  text-decoration: none;
+} 
 
 .cart-table th{
   text-align: center;
@@ -99,4 +130,19 @@
   padding: 0 5px;
   color: white;
   background-color: #222222;
+}
+
+.chef_info_with_cart {
+  display: flex;
+  width: 100%;
+}
+
+.cart__chef__title {
+  font-size: 1.7em;
+  color: #3b3b3b;
+  padding: 5vh 0 2vh;
+}
+
+.middle_blank {
+  width: 30px;
 }

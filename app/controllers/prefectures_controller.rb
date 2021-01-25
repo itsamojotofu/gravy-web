@@ -34,8 +34,8 @@ class PrefecturesController < ApplicationController
       end
     end
     
-    @dishes = @dishes.sort {|a,b| b.likes.size <=> a.likes.size}
-    @chefs = @chefs.sort {|a,b| b.favorite_chefs.size <=> a.favorite_chefs.size}
+    @dishes = @dishes.sort {|a,b| b.likes.size <=> a.likes.size}.last(20)
+    @chefs = @chefs.sort {|a,b| b.favorite_chefs.size <=> a.favorite_chefs.size}.last(20)
   end
 
   def search

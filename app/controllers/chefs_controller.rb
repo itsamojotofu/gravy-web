@@ -30,9 +30,27 @@ class ChefsController < ApplicationController
 
   def search
     @profiles = @pro.result.includes(:chef)
-
     @chefs = @p.result.includes(:profile)
     
+    #ユーザーがログインしている場合は自動で提供地域のみに絞る
+    if user_signed_in?
+      @chefs_all = @chefs
+      @chefs = []
+      @chefs_all.each do |chef|
+        if chef.prefecture.id == current_user.prefecture.id
+          @chefs << chef
+        end
+      end
+
+      @profiles_all = @profiles
+      @profiles = []
+      @profiles_all.each do |profile|
+        if profile.chef.prefecture.id == current_user.prefecture.id
+          @profiles << profile
+        end
+      end
+    end
+
     if @profiles == Profile.all
       @profiles = []
       
@@ -40,6 +58,10 @@ class ChefsController < ApplicationController
         @profiles << chef.profile
       end
     end
+
+    @total_num = @profiles.count
+    @profiles = Kaminari.paginate_array(@profiles).page(params[:page]).per(8)
+
   end
 
   private

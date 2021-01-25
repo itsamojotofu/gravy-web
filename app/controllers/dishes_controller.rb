@@ -45,6 +45,21 @@ class DishesController < ApplicationController
 
   def search
     @dishes = @p.result.includes(:chef)
+
+    #ユーザーがログインしている場合は自動で提供地域のみに絞る
+    if user_signed_in?
+      @dishes_all = @dishes
+      @dishes = []
+      @dishes_all.each do |dish|
+        if dish.chef.prefecture.id == current_user.prefecture.id
+          @dishes << dish
+        end
+      end
+    end
+
+    @total_num = @dishes.count
+    @dishes = Kaminari.paginate_array(@dishes).page(params[:page]).per(8)
+
   end
 
   private

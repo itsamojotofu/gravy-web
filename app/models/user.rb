@@ -24,7 +24,7 @@ class User < ApplicationRecord
   end
 
   validates :password,
-            format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'must include alphabet and numbers' }
+            format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'must include alphabet and numbers' }, on: :create
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
@@ -34,4 +34,5 @@ class User < ApplicationRecord
   has_many :favorite_chefs
   has_many :chefs, through: :favorite_chefs
   has_many :orders
+  has_one :card, dependent: :destroy
 end

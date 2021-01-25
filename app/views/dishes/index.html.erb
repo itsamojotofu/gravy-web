@@ -5,7 +5,9 @@
     <div class="gravy-center">
       <p class="gravy-copy">隠れた名シェフを発掘しませんか？</p>
       <p class="gravy-search">まずは地域を教えてください</p>
+      <% if flash[:alert] == '入力予測から選択してください' || flash[:alert] == '日本語で入力してください' %> 
       <p><%= flash[:alert] %></p>
+      <% end %>
     </div>
   </div>
     <video id="gravy-video" muted autoplay loop>
@@ -46,7 +48,7 @@
     <h2>バラエティに富んだ料理たち</h2>
     <%= image_tag "a-variety-of-dishes.png", class:"gravy-intro-image" %>
     <h2>食べたい料理はありませんか？</h2>
-    <%= link_to 'シェフのメニューを覗いてみる', "#", class: "intro-link" %>
+    <%= link_to 'シェフのメニューを覗いてみる', search_chefs_path, class: "intro-link" %>
   </div>
   <div class="service-introbox">
     <h2>もうお店は必要ありません</h2>
