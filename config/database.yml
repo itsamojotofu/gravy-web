@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: gravy_32310_production
-  username: gravy_32310
-  password: <%= ENV['GRAVY_32310_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
