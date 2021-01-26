@@ -118,6 +118,14 @@
           </div>
           <%= f.text_field :cvc,class:"input-security-code", id:"card-cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
         </div>
+        <div class="buy-dish-title">
+          <h1 class='transaction-subtitle-text'>
+            次回以降の注文をよりスピーディに
+          </h1>
+        </div>
+        <div class="buy-dish-subtitle">
+          <div class="order-choice"><%= link_to "クレジットカードを登録する", new_card_path %></div>
+        </div>
     </div>
     <% else %>
     <%= f.hidden_field :number, class:"input-card-number", id:"card-number", placeholder:" カード番号(半角英数字)", maxlength:"16" %>

@@ -16,6 +16,11 @@
         <li><%= link_to "マイページ", "/chefs/#{current_chef.id}", class: "post-btn" %></li>
         <li><%= link_to 'ログアウト', destroy_chef_session_path, method: :delete, class: "post-btn" %></li>
         <li><%= link_to "料理をメニューに追加", "/dishes/new", class: "choice-btn" %></li>
+        <li><%= link_to 'プロフィールの更新', edit_profile_path(current_chef.profile.id), method: :get, class: "choice-btn" %></li>
+        <br>
+        <li><%= link_to "料理を探す ≫", "/dishes/search", class: "choice-btn" %></li>
+        <li><%= link_to "シェフを探す ≫", "/chefs/search", class: "choice-btn" %></li>
+        <li><%= link_to "地域から探す ≫", root_path, class: "choice-btn" %></li>
       <% else %>
         <h2>ユーザーの方はこちら</h2>
         <li><%= link_to 'ログイン', new_user_session_path, class: "post-btn" %></li>
