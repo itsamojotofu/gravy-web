@@ -1,4 +1,4 @@
-![Gravy Logo](https://user-images.githubusercontent.com/74521093/101759428-ef9b7d80-3b1c-11eb-8a33-33b97be09ede.png)
+![Gravy Logo](https://user-images.githubusercontent.com/74521093/105893857-f3487c80-6056-11eb-935e-eae22e3195b7.png)
 
 ## :wrench: Tools
 
