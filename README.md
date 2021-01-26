@@ -1,7 +1,7 @@
 ![Gravy Logo](https://user-images.githubusercontent.com/74521093/105895448-e036ac00-6058-11eb-87f9-494ca7686e31.png)
 
 
-### About Gravy (グレイビーについて)
+## About Gravy (グレイビーについて)
 グレイビー(Gravy)はC2Cのフードデリバリーを実現するためのプラットフォームです。
   
 ※実取引は不可能です
