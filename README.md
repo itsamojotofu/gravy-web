@@ -58,6 +58,4 @@ $ bundle install
  
 Gravy is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
 
-Copyright (c) 2021 swata-dev
-Released under the MIT license
-https://opensource.org/licenses/mit-license.php
+Copyright (c) 2021 swata-dev  Released under the MIT license  https://opensource.org/licenses/mit-license.php
