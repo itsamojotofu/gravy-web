@@ -6,13 +6,14 @@
   
 ※実取引は不可能です
 
-## 🌐 URL (本番環境)
+## :earth_americas: URL (本番環境)
 http://18.180.105.125/
 
-## 🌐 Demonstration (デモ)
+##  Demonstration (デモ)
 
 
-## 🌝 What brought me to make this app (アプリ作成のきっかけ)
+## What brought me to make this app (アプリ作成の動機)
+
 
 
 ## 💫 Functions (機能)
@@ -47,139 +48,8 @@ $ bundle install
 - expiration date : 01/23
 - cvc             : 123
 
-## 💡 Supplementary information
+## Supplementary information
 - Ruby 2.6.5
 - Ruby on Rails 6.0.3.4
 
-## 👀 E-R Diagram
-
-
-## 📙 Features
-## Home
-
-## Index of dishes
-
-## Detail of a dish
-
-## Cart
-
-## Log in (User)
-
-## Sign up (User)
-
-## Log in (Chef)
-
-## Sign up (Chef)
-
-
-## My Account
-
-## Favorite
-
-## Registration of an address
-
-## Registration of a credit card
-
-## Confirmation before payment
-
-## Completion of Purchasing
-
-## Purchase history
-
-## Details of purchase history
-
-## Index page for chef
-
-## Registration of dishes (Chef)
-
-
-# Database
-
-## users table
-
-|Column |Type |Options |
-|-------|-----|--------|
-| nickname        | string      | null: false                     |
-| email           | string      | null: false, uniqueness: true   |
-| password        | string      | null: false                     |
-| zip_code        | string      | null: false                     |
-| prefecture_id   | integer     | null: false                     |
-| district        | string      | null: false                     |
-| street          | string      | null: false                     |
-| phone_number    | string      | null: false                     |
-
-### Association
-- has_many :orders
-- has_many :dishes, through: :orders
-
-## chefs table
-
-|Column |Type |Options |
-|-------|-----|--------|
-| name           | string      | null: false                    |
-| email          | string      | null: false, uniqueness: true  |
-| password       | string      | null: false                    |
-| zip_code       | string      | null: false                    |
-| prefecture_id  | integer     | null: false                    |
-| district       | string      | null: false                    |
-| street         | string      | null: false                    |
-| phone_number   | string      | null: false                    |
-
-### Association
-- has_many :dishes
-- has_one :profile
-
-## profiles table
-
-| about               | text        |                                |
-| business_hour_begin | time        | null: false                    |
-| business_hour_end   | time        | null: false                    |
-| status_id           | integer     | null: false                    |
-| gender_id           | integer     | null: false                    |
-| age_id              | integer     | null: false                    |
-| genre_id            | integer     | null: false                    |
-| chef                | references  | null: false, foreign_key: true |
-
-### Association
-- belongs_to :chef
-
-## dishes table
-
-|Column |Type |Options |
-|-------|-----|--------|
-| name        | string      | null: false                    |
-| about       | text        |                                |
-| ready_id    | integer     | null: false                    |
-| price       | integer     | null: false                    |
-| chef        | references  | null: false, foreign_key: true |
-
-
-### Association
-- belongs_to :chef
-- has_many :orders
-- has_many :users, through: :orders
-- has_many :dish_tag_relations
-- has_many :tags, through: :dish_tag_relations
-
-## orders table
-
-|Column |Type |Options |
-|-------|-----|--------|
-| user   | references   | null: false, foreign_key: true |
-| dish   | references   | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-- belongs_to :dish
-
-## tags table
-
-|Column |Type |Options |
-|-------|-----|--------|
-| name        | string      | null: false, uniqueness: true  |
-
-### Association
-- has_many :dish_tag_relations
-- has_many :dishes, through: :dish_tag_relations
-
-
+## Entity Relationship Diagram (ER図)
