@@ -10,7 +10,7 @@
 </p>
 
 ## 🌐 App URL
-https://gravy-32310.herokuapp.com/
+http://18.180.105.125/
 
 ## 📝 About
 C2Cのフードデリバリーを実現するためのプラットフォームです。
