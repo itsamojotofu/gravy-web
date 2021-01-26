@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   before_action :cpp, if: :devise_controller?
+  before_action :basic_auth
   before_action :chef_caution, if: :devise_controller?
   before_action :user_caution, if: :devise_controller?
 
@@ -17,6 +18,12 @@ class ApplicationController < ActionController::Base
     current_cart ||= Cart.create
     session[:cart_id] = current_cart.id
     current_cart
+  end
+
+  def basic_auth
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
+    end
   end
 
   def chef_caution
