@@ -1,12 +1,12 @@
 ![Gravy Logo](https://user-images.githubusercontent.com/74521093/105895448-e036ac00-6058-11eb-87f9-494ca7686e31.png)
 
 
-## :honey_pot: About Gravy (グレイビーについて) :honey_pot:
+## :honey_pot: About Gravy (グレイビーについて)
 グレイビー(Gravy)はC2Cのフードデリバリーを実現するためのプラットフォームです。
   
 ※実取引は不可能です
 
-## :earth_americas: URL (本番環境) :earth_americas:
+## :earth_americas: URL (本番環境)
 http://18.180.105.125/
 
 ##  Demonstration (デモ)
