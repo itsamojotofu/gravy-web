@@ -1,21 +1,21 @@
 ![Gravy Logo](https://user-images.githubusercontent.com/74521093/105895448-e036ac00-6058-11eb-87f9-494ca7686e31.png)
 
 
-## About Gravy (グレイビーについて)
+## :fork_and_knife: About Gravy (グレイビーについて)
 グレイビー(Gravy)はC2Cのフードデリバリーを実現するためのプラットフォームです。
   
 ※実取引は不可能です
 
-## URL (本番環境)
+## 🌐 URL (本番環境)
 http://18.180.105.125/
 
 ## 🌐 Demonstration (デモ)
 
 
-## 🌝 What brought me to make this app
+## 🌝 What brought me to make this app (アプリ作成のきっかけ)
 
 
-## 💫 Functions
+## 💫 Functions (機能)
 - deviseを用いたユーザー新規登録とログイン
 - cancancanを用いた管理者権限の付与
 - rails_adminを用いた管理者ページ作成及び商品登録
@@ -27,7 +27,7 @@ http://18.180.105.125/
 - RSpecを使ったモデルの単体テストコード
 - capistranoによるAWS EC2への自動デプロイ
 
-## 🙌 Check It on Local
+## 🙌 Check It on Local (ローカル環境でお試しください)
 ```
 $ git clone 
 $ cd gravy-32310
@@ -48,8 +48,8 @@ $ bundle install
 - cvc             : 123
 
 ## 💡 Supplementary information
-- Ruby 2.5.1
-- Ruby on Rails 5.2.4.2
+- Ruby 2.6.5
+- Ruby on Rails 6.0.3.4
 
 ## 👀 E-R Diagram
 
