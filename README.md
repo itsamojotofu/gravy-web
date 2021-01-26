@@ -16,7 +16,7 @@ http://18.180.105.125/
 
 
 
-## 💫 Functions (機能)
+## Functions (機能)
 - deviseを用いたユーザー新規登録とログイン
 - cancancanを用いた管理者権限の付与
 - rails_adminを用いた管理者ページ作成及び商品登録
@@ -53,3 +53,7 @@ $ bundle install
 - Ruby on Rails 6.0.3.4
 
 ## Entity Relationship Diagram (ER図)
+
+## :copyright: License
+ 
+Gravy is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
