@@ -11,6 +11,8 @@ http://18.180.105.125/
 
 ##  Demonstration (デモ)
 
+### Home
+[![Image from Gyazo](https://i.gyazo.com/fb7cbd376f13c9b1e6b291a5cae52a62.gif)](https://gyazo.com/fb7cbd376f13c9b1e6b291a5cae52a62)
 
 ## What brought me to make this app (アプリ作成の動機)
 
