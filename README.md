@@ -12,8 +12,7 @@ http://18.180.105.125/
 ##  Demonstration (デモ)
 
 ### Home
-![Gravy-homepage](https://i.gyazo.com/fb7cbd376f13c9b1e6b291a5cae52a62.gif)
-
+![Gravy: Homepage](https://user-images.githubusercontent.com/74521093/106018759-3b25dd00-6105-11eb-88f9-746d248ad312.png)
 ## What brought me to make this app (アプリ作成の動機)
 
 
