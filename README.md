@@ -13,7 +13,7 @@ http://18.180.105.125/
 
 ### Home
 [![Image from Gyazo](https://i.gyazo.com/fb7cbd376f13c9b1e6b291a5cae52a62.gif)](https://gyazo.com/fb7cbd376f13c9b1e6b291a5cae52a62)
-
+[![Image from Gyazo](https://i.gyazo.com/1ad91e03aa791621171522a9d842689b.gif)](https://gyazo.com/1ad91e03aa791621171522a9d842689b)
 ## What brought me to make this app (アプリ作成の動機)
 
 
