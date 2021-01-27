@@ -12,7 +12,7 @@ http://18.180.105.125/
 ##  Demonstration (デモ)
 
 ### Home
-![Gravy: Homepage](https://user-images.githubusercontent.com/74521093/106018759-3b25dd00-6105-11eb-88f9-746d248ad312.png)
+![Gravy: Homepage](https://user-images.githubusercontent.com/74521093/106019267-cef7a900-6105-11eb-9b12-545c4c40f106.png)
 ## What brought me to make this app (アプリ作成の動機)
 
 
