@@ -15,8 +15,8 @@ http://18.180.105.125/
 |----| 
 | ![Gravy: Homepage](https://user-images.githubusercontent.com/74521093/106019267-cef7a900-6105-11eb-9b12-545c4c40f106.png) | 
 
-### Home
-![Gravy: Homepage](https://user-images.githubusercontent.com/74521093/106019267-cef7a900-6105-11eb-9b12-545c4c40f106.png)
+
+
 ## What brought me to make this app (アプリ作成の動機)
 
 
