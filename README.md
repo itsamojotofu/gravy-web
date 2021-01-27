@@ -9,7 +9,11 @@
 ## :earth_americas: URL (本番環境)
 http://18.180.105.125/
 
-##  Demonstration (デモ)
+##  Demo (デモ)
+
+| Home |
+|----| 
+| ![Gravy: Homepage](https://user-images.githubusercontent.com/74521093/106019267-cef7a900-6105-11eb-9b12-545c4c40f106.png) | 
 
 ### Home
 ![Gravy: Homepage](https://user-images.githubusercontent.com/74521093/106019267-cef7a900-6105-11eb-9b12-545c4c40f106.png)
