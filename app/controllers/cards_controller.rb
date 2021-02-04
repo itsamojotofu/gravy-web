@@ -27,7 +27,7 @@ class CardsController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = 'no such token: null'
-      redirect_to new_card_path
+
     end
   end
 
