@@ -23,8 +23,9 @@ class CardsController < ApplicationController
         user_id: current_user.id
       )
 
-      card.save
-      redirect_to root_path
+      if card.save
+        redirect_to root_path
+      end
     else
       flash[:alert] = 'no such token: null'
       redirect_to new_card_path
