@@ -11,7 +11,7 @@ class CardsController < ApplicationController
 
   def create
     if params[:card_token] != 'null'
-      Payjp.api_key = Rails.application.credentials.PAYJP_SECRET_KEY
+      Payjp.api_key = 'sk_test_fa6b09cbeec2e099ac8fe15d'
       customer = Payjp::Customer.create(
         description: 'test', # テストカードであることを説明
         card: params[:card_token] # 登録しようとしているカード情報
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = 'no such token: null'
-
+      redirect_to new_card_path
     end
   end
 
