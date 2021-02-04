@@ -11,7 +11,7 @@ class CardsController < ApplicationController
 
   def create
     if params[:card_token] != 'null'
-      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      Payjp.api_key = Rails.application.credentials.PAYJP_SECRET_KEY
       customer = Payjp::Customer.create(
         description: 'test', # テストカードであることを説明
         card: params[:card_token] # 登録しようとしているカード情報
@@ -27,13 +27,13 @@ class CardsController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = 'no such token: null'
-
+      redirect_to new_card_path
     end
   end
 
   def show
     if @user.card.present?
-      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      Payjp.api_key = Rails.application.credentials.PAYJP_SECRET_KEY
       card = Card.find_by(user_id: @user.id) # ユーザーのid情報を元に、カード情報を取得
 
       customer = Payjp::Customer.retrieve(card.customer_token) # 先程のカード情報を元に、顧客情報を取得
@@ -43,7 +43,7 @@ class CardsController < ApplicationController
 
   def destroy
     if @user.card.present?
-      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      Payjp.api_key = Rails.application.credentials.PAYJP_SECRET_KEY
       card = Card.find_by(user_id: @user.id) # ユーザーのid情報を元に、カード情報を取得
 
       customer = Payjp::Customer.retrieve(card.customer_token)
