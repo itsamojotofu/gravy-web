@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
     @orders = @orders.page(params[:page]).per(1)
 
     if @user.card.present?
-      Payjp.api_key = Rails.application.credentials.PAYJP_SECRET_KEY
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       card = Card.find_by(user_id: current_user.id)
       customer = Payjp::Customer.retrieve(card.customer_token)
       @card = customer.cards.first
@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
 
     # クレジットカード情報を表示
     if @user.card.present?
-      Payjp.api_key = Rails.application.credentials.PAYJP_SECRET_KEY
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       card = Card.find_by(user_id: current_user.id)
       customer = Payjp::Customer.retrieve(card.customer_token)
       @card = customer.cards.first
@@ -70,7 +70,7 @@ class OrdersController < ApplicationController
   end
 
   def pay_dish
-    Payjp.api_key = Rails.application.credentials.PAYJP_SECRET_KEY
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @cart.total_price,
       card: set_params[:token],
@@ -79,7 +79,7 @@ class OrdersController < ApplicationController
   end
 
   def pay_dish_w_card
-    Payjp.api_key = Rails.application.credentials.PAYJP_SECRET_KEY
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @cart.total_price,
       customer: card_params[:token],
