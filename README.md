@@ -102,8 +102,6 @@ $ bundle install
 - Ruby 2.6.5
 - Ruby on Rails 6.0.3.4
 
-## Entity Relationship Diagram (ER 図)
-
 ## :copyright: License
 
 #### Gravy is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
